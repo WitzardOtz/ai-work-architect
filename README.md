@@ -2,6 +2,19 @@
 
 AWA helps decide **how to structure AI-assisted work** before choosing a model. It decomposes complex work, derives execution steps, matches those steps to tools/models/effort available in the current environment, generates handoffs when another workspace/device is better suited, and learns from run outcomes without loading its whole history into the model context.
 
+## Start here / Inizia da qui
+
+**[Guida pratica in italiano](USER_GUIDE_IT.md)** — installazione, primo utilizzo, configurazione aziendale, messaggio per i colleghi, accessi, continuita e limiti.
+
+| Your situation | Start with |
+|---|---|
+| First use | Ask AWA to guide your initial setup; choose local or shared memory. |
+| First person configuring a company | Ask AWA to configure company context and provide selected sources. Review the profile, confirm its scope, and receive a message to copy to colleagues. |
+| Joining an existing company setup | Give AWA the shared profile reference. It checks your access and current version, then asks only for missing role/project details. |
+| Returning to a project | Reuse its checkpoint and scoped profile reference; clarify relevant changes without recreating the setup. |
+
+The company wizard is conversational guidance followed by the host agent, not a hosted application. The detailed workflow is in [organization context setup](references/organization-context-setup.md).
+
 ## Guided first use
 
 At first use, AWA checks for existing configuration and guides you through local or shared persistence when needed. Google Drive is optional. The agent verifies the available storage adapter, reports any access limitations, and resumes your task. Existing healthy profiles are reused without repeating setup. See [guided setup](references/first-run-setup.md).
@@ -75,7 +88,7 @@ ChatGPT / Claude / Codex / Antigravity
 
 ## Installable package
 
-The ZIP root is exactly `ai-work-architect/`, matching the `name:` in `SKILL.md`.
+The installed folder must be named `ai-work-architect`, matching the `name:` in `SKILL.md`. GitHub source ZIPs may extract as `ai-work-architect-main`; rename that folder when installing.
 
 ## Local CLI
 
