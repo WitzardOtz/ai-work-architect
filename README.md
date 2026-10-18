@@ -183,3 +183,11 @@ AWA v0.4.0 regression test: PASS
 ## Design status
 
 v0.4 freezes the main architecture for real-world testing. Further changes should be driven primarily by closed runs and actual environment failures rather than additional speculative design.
+
+## License
+
+Copyright 2026 WitzardOtz.
+
+AI Work Architect instructions, scripts, references and templates in this repository are licensed under the [Apache License 2.0](LICENSE).
+
+The license applies to the distributed AWA package; it does not license users' private configuration, Vault contents, company documents or other user-provided materials. Third-party materials retain their own terms.

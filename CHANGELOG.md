@@ -2,6 +2,8 @@
 
 ## Unreleased — 2026-10-18
 
+- License the distributed AWA package under Apache-2.0; add the full license and package metadata. Private user materials are outside this license grant.
+
 - Fix Windows replacement of mutable configuration and derived Vault indexes; preserve event-write behavior. Add regression coverage for repeated compaction, configuration save and unchanged historical events.
 
 - Add conversational first-run setup: inspect existing profiles, guide local/shared storage choice, verify adapter round trips, and distinguish local access from cross-device sync. Drive remains optional; preserve existing configuration on failures.

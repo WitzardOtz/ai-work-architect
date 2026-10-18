@@ -1,5 +1,6 @@
 ---
 name: ai-work-architect
+license: Apache-2.0
 description: >-
   Architect AI-assisted work before execution. Use when the user wants help deciding how to approach a task/project, decompose complex work across research, extraction, data analysis, coding, writing, validation or multiple workspaces, select models/tools/effort/context, decide whether to build/reuse a Skill, or optimize quality/cost. AWA is environment-aware: knowledge is shared, availability is local. It can persist its operational memory locally or in a shared Google Drive AWA Vault using immutable event files.
 ---
