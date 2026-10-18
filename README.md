@@ -28,6 +28,8 @@ Ask AWA: **"Help me configure our company context"** (or in your preferred langu
 
 The [conversational wizard](references/organization-context-setup.md) works with selected local files or supported connected storage; Google Drive is optional. Private profiles and source indexes stay outside this public package. AWA retrieves only relevant material and uses applicable constraints when planning work and selecting tools. The workflow does not implement access control or guarantee compliance, and the current CLI does not automatically load these agent-managed profiles.
 
+After the first reusable company setup, AWA gives the configurator a message to copy to colleagues, including the shared profile reference and an existing-context setup instruction. Each colleague verifies their own access; messages and permissions are not sent or changed automatically.
+
 Reusable templates: [organization profile](templates/organization-profile.md), [source index](templates/organization-sources.md), and [scoped context binding](templates/context-bindings.example.json). No real company data is included.
 
 ## What changed in v0.4

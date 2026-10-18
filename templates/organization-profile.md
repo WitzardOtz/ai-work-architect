@@ -12,6 +12,8 @@ Private working document. Fill from selected sources and confirmed answers; do n
 - Confirmation reference/date, if given:
 - Review date / expiry (unknown if not supplied):
 - Source index reference:
+- Reusable shared profile reference and intended audience (if applicable; access is checked per user):
+- Verified owner / route for requesting access (unknown if not supplied):
 
 ## Context and objectives
 

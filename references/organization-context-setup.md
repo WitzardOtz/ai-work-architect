@@ -80,6 +80,22 @@ Support requests such as "update our policies", "use another organization" and "
 
 Switch only the selected session/project binding. Disconnect removes or disables that binding and stops future retrieval for that scope; it does not delete source documents, prior artifacts or private profiles without an explicit deletion request. Clear company-specific working context as far as the host allows, and use a fresh session when reliable separation requires it. Do not promise that switching erases prior model context.
 
+## 6. Give the configurator a colleague onboarding message
+
+After the first confirmed organizational setup intended for reuse, automatically provide a short message the configurator can copy to colleagues. Use the configurator's language and a reusable chat-message format when the host supports it. Do not ask them to reconstruct the instructions themselves. Do not send messages, add recipients, change sharing permissions or grant access automatically.
+
+Before composing, establish the actual reusable profile reference and its sharing scope. Use a credential-free link accessible through the selected document service or an organizational shared location. A device-local path is not a working link for colleagues on other devices. If only local/session storage exists, explain this and ask for a suitable shared destination when needed; mark the message as a draft until a real reference is available. Do not claim that teammates can access a folder simply because the configurator can.
+
+For a ready shared reference, produce a complete message with observed values, following this example:
+
+> We have configured our company context for AWA. If you have not installed AWA yet, get it from https://github.com/WitzardOtz/ai-work-architect using your environment's skill installation process. Then tell AWA: "Connect the existing company profile at [shared profile reference] for [organization / applicable scope]. Verify my access and the current version, show the applicable rules and any gaps, and ask only for my role and project details that are missing. Reuse the existing company context rather than building it again." If access is denied, contact [verified profile owner or access route].
+
+Replace example fields with actual references and scope; omit the access contact if it is unknown rather than inventing one. If the reference is still missing, clearly label unresolved fields as draft and state what the configurator must supply. Do not include source documents, private policy excerpts, credentials, the configurator's user-specific permissions, or an assumption that the message author speaks for every department. Keep any known applicability limitation visible.
+
+For each new colleague, use the existing-profile intake route: verify their own host/data path and source access, read the current profile/revision, confirm applicable organization/project scope, and collect only missing role, permission or preference details. Reuse shared company rules; never copy the first user's access grants or active project binding. Where a shared profile is intended for a wider group, let the configurator provide a shareable reference once and store that reference in private profile metadata if appropriate. Keep each user's binding separate.
+
+Offer an updated copyable message if the shared reference or applicability changes; do not send it or promise automatic notifications. Private profile metadata and generated colleague messages remain outside the public skill package.
+
 ## Completion response
 
-Report the selected organization/scope, private profile location, inspected sources, active constraints and unresolved gaps, whether persistence worked, and the next concrete action. Keep technical metadata in the profile rather than overwhelming the user. No company has been configured merely by installing this workflow.
+Report the selected organization/scope, private profile location, inspected sources, active constraints and unresolved gaps, whether persistence worked, and the next concrete action. Keep technical metadata in the profile rather than overwhelming the user. For a reusable first setup, also provide the colleague onboarding message described above, or explain the missing shared reference. No company has been configured merely by installing this workflow.

@@ -2,6 +2,8 @@
 
 ## Unreleased — 2026-10-18
 
+- Give the first company configurator a copyable colleague onboarding message using a verified shared profile reference; later users reuse company context while checking their own scope and access. Local-only references produce an explicit draft, not a false sharing claim.
+
 - Add optional organization-context wizard: connect selected sources or build private profiles, separate constraints/preferences, review and activate per project/workspace, and support updates/disconnection without resetting persistence.
 - Add organization profile, source-index and binding templates; integrate scoped constraints into setup, resource routing and project checkpoints. No organization is configured by installation; private content is excluded from the public package and global learning.
 
