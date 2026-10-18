@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "description": "Agent-managed private binding format; not loaded by awa_cli.py. Example contains no active organization.",
+  "bindings": [
+    {
+      "scope_ref": "PRIVATE_PROJECT_OR_WORKSPACE_REFERENCE",
+      "mode": "personal",
+      "organization_id": null,
+      "profile_ref": null,
+      "profile_revision": null,
+      "profile_sha256": null,
+      "source_index_ref": null,
+      "status": "unconfigured",
+      "confirmed_at": null
+    }
+  ]
+}

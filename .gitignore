@@ -13,3 +13,8 @@ artifacts/
 *.db
 *.db-shm
 *.db-wal
+
+# Private, agent-managed organization context
+context-bindings.json
+organizations/
+.awa/

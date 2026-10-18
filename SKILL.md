@@ -2,7 +2,7 @@
 name: ai-work-architect
 license: Apache-2.0
 description: >-
-  Architect AI-assisted work before execution. Use when the user wants help deciding how to approach a task/project, decompose complex work across research, extraction, data analysis, coding, writing, validation or multiple workspaces, select models/tools/effort/context, decide whether to build/reuse a Skill, or optimize quality/cost. AWA is environment-aware: knowledge is shared, availability is local. It can persist its operational memory locally or in a shared Google Drive AWA Vault using immutable event files.
+  Architect AI-assisted work before execution. Use when the user wants help deciding how to approach a task/project, decompose complex work across research, extraction, data analysis, coding, writing, validation or multiple workspaces, select models/tools/effort/context, decide whether to build/reuse a Skill, optimize quality/cost, or configure organizational context and policies. AWA is environment-aware: knowledge is shared, availability is local. It can persist its operational memory locally or in a shared Google Drive AWA Vault using immutable event files.
 ---
 
 # AI Work Architect
@@ -41,6 +41,10 @@ If AWA has no persistence configuration, ask **once**:
 > - **Yes — Shared mode:** use a shared **Google Drive AWA Vault** so supported local and cloud environments can consult the same canonical state.
 
 Do not ask this again after configuration exists.
+
+### Optional organization context
+
+For a request to load company context or an organizational selection during setup, follow [references/organization-context-setup.md](references/organization-context-setup.md). Connect selected sources or build a private profile, distinguish confirmed constraints from preferences and unknowns, and confirm its project/workspace scope before activation. Reuse a healthy scoped binding; do not repeat onboarding or mix organizations. Before planning, apply relevant constraints alongside verified environment capabilities. Keep company material outside the public skill and global learning; this workflow guides the host and does not enforce infrastructure security.
 
 ### Persistence profiles
 
@@ -173,7 +177,7 @@ Execution classes:
 For each Step:
 
 1. choose the appropriate resource class first;
-2. apply hard capability filters;
+2. apply hard capability filters and relevant confirmed organizational constraints; record unknown permissions rather than assuming approval;
 3. intersect requirements with the **current Environment Capability Profile**;
 4. if the ideal plan is not locally feasible, check known alternate environments and choose between local adaptation vs handoff;
 5. query only relevant global performance evidence when needed;

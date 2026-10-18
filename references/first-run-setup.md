@@ -2,6 +2,10 @@
 
 Use on first use, an explicit setup/reconfiguration request, or a persistence failure. Keep the conversation brief and in the user's language. Ask only for information that changes the next step; one decision at a time is usually enough. Setup supports the current task rather than replacing it.
 
+## Optional personal or organization context
+
+Context setup is independent of storage setup. On first use in an unknown scope, ask whether AWA is being used personally or for an organization; reuse an explicit existing choice. Organizational use follows [organization-context-setup.md](organization-context-setup.md) to connect sources or build and confirm a private profile. An explicit company-context request enters that path even when persistence is already configured. Personal use skips it. Do not repeat a healthy scoped profile or treat an existing Vault configuration as a company-policy configuration. If a storage failure is being repaired, resolve that failure without forcing unrelated context onboarding.
+
 ## 1. Inspect before asking
 
 Verify the current environment's actual shell/Python/filesystem or connector access. Do not assume that a product name implies capabilities. For local clients, inspect the configuration selected by `AWA_CONFIG_PATH`, otherwise `~/.ai-work-architect/config.json`. Do not expose credentials or dump configuration into chat.

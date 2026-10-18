@@ -7,6 +7,7 @@ Use this as a compact starting structure, not a mandatory form. Adapt to existin
 - Objective and accepted scope:
 - Binding decisions/constraints and source references:
 - Workspace/repository and relevant artifact locations:
+- Organization context pointer, selected scope and profile revision (only in private project storage, if applicable):
 - Acceptance/release gates:
 
 ## Work plan

@@ -22,6 +22,14 @@ git clone https://github.com/WitzardOtz/ai-work-architect.git
 
 The repository contains reusable instructions, scripts, templates and tests. Your personal configuration, Vault events, caches and run artifacts belong outside this package and are not included. Installing the skill does not connect accounts or configure shared persistence; the first-run instructions guide that choice.
 
+## Company context setup
+
+Ask AWA: **"Help me configure our company context"** (or in your preferred language). AWA guides you through selecting an organization and scope, connecting existing documents or building a profile, separating policies from preferences, reviewing gaps, and confirming the profile to use. Existing healthy project bindings are reused.
+
+The [conversational wizard](references/organization-context-setup.md) works with selected local files or supported connected storage; Google Drive is optional. Private profiles and source indexes stay outside this public package. AWA retrieves only relevant material and uses applicable constraints when planning work and selecting tools. The workflow does not implement access control or guarantee compliance, and the current CLI does not automatically load these agent-managed profiles.
+
+Reusable templates: [organization profile](templates/organization-profile.md), [source index](templates/organization-sources.md), and [scoped context binding](templates/context-bindings.example.json). No real company data is included.
+
 ## What changed in v0.4
 
 The major change is persistence and environment awareness.

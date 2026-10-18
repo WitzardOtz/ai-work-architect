@@ -2,6 +2,9 @@
 
 ## Unreleased — 2026-10-18
 
+- Add optional organization-context wizard: connect selected sources or build private profiles, separate constraints/preferences, review and activate per project/workspace, and support updates/disconnection without resetting persistence.
+- Add organization profile, source-index and binding templates; integrate scoped constraints into setup, resource routing and project checkpoints. No organization is configured by installation; private content is excluded from the public package and global learning.
+
 - License the distributed AWA package under Apache-2.0; add the full license and package metadata. Private user materials are outside this license grant.
 
 - Fix Windows replacement of mutable configuration and derived Vault indexes; preserve event-write behavior. Add regression coverage for repeated compaction, configuration save and unchanged historical events.
