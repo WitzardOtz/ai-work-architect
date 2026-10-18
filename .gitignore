@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+config.json
+vault/
+events/
+index/
+cache/
+artifacts/
+*.db
+*.db-shm
+*.db-wal

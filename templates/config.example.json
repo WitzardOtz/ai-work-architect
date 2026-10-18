@@ -1,0 +1,8 @@
+{
+  "schema_version": "0.4",
+  "mode": "SHARED_GOOGLE_DRIVE",
+  "vault_root": "G:/My Drive/AWA",
+  "device_id": "MY-PC",
+  "environment_id": "antigravity-local",
+  "shared_provider": "GOOGLE_DRIVE"
+}

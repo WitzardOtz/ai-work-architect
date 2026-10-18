@@ -1,0 +1,11 @@
+{
+  "name": "ai-work-architect",
+  "version": "0.4.0",
+  "entrypoint": "SKILL.md",
+  "persistence": {
+    "canonical": "immutable_event_vault",
+    "profiles": ["LOCAL", "SHARED_GOOGLE_DRIVE", "CUSTOM_SHARED", "DEGRADED"],
+    "local_cache": "sqlite_disposable"
+  },
+  "python_dependencies": "stdlib-only"
+}
