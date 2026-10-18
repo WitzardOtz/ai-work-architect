@@ -1,5 +1,7 @@
 # Design evidence for v0.4
 
+[English](SOURCES.md) | [Italiano](docs/it/SOURCES.md)
+
 This version is based primarily on cross-environment validation of v0.3.x rather than external benchmark claims.
 
 Observed constraints incorporated into the design:

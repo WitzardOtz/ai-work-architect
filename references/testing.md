@@ -1,5 +1,7 @@
 # Testing protocol
 
+[English](testing.md) | [Italiano](../docs/it/references/testing.md)
+
 After installation, test the environment rather than only reviewing the Skill.
 
 Minimum checks:

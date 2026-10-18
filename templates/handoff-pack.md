@@ -1,5 +1,7 @@
 # AWA Handoff Pack
 
+[English](handoff-pack.md) | [Italiano](../docs/it/templates/handoff-pack.md)
+
 ## Project
 - project_id:
 - mission:

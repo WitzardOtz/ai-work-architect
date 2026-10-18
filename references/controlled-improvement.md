@@ -1,5 +1,7 @@
 # Controlled improvement
 
+[English](controlled-improvement.md) | [Italiano](../docs/it/references/controlled-improvement.md)
+
 Use this optional protocol when the user requests an experiment or repeated run evidence identifies a costly, recurring AWA problem. Ordinary tasks continue through the normal workflow. An observed improvement is a scoped finding, not automatic permission to rewrite defaults.
 
 ## Define the comparison before executing

@@ -1,5 +1,7 @@
 # Task Signature
 
+[English](signatures.md) | [Italiano](../docs/it/references/signatures.md)
+
 The Signature describes the problem, never the proposed solution.
 
 ## Core dimensions

@@ -1,5 +1,7 @@
 # Claude environment profile
 
+[English](claude.md) | [Italiano](../docs/it/environments/claude.md)
+
 Treat Claude as several different environments, not one capability set.
 
 ## Claude chat / Project

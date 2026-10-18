@@ -7,6 +7,8 @@ description: >-
 
 # AI Work Architect
 
+[English](SKILL.md) | [Italiano](docs/it/SKILL.md)
+
 Version: 0.4.0
 
 ## Mission

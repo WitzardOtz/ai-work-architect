@@ -1,5 +1,7 @@
 # Cloud adapters
 
+[English](cloud-adapters.md) | [Italiano](../docs/it/references/cloud-adapters.md)
+
 A cloud client may not have local shell/filesystem access. Shared persistence therefore depends on a **verified cloud connector** to the same Google Drive Vault.
 
 ## Read pattern

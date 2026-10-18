@@ -1,5 +1,7 @@
 # Guided first-run setup
 
+[English](first-run-setup.md) | [Italiano](../docs/it/references/first-run-setup.md)
+
 Use on first use, an explicit setup/reconfiguration request, or a persistence failure. Keep the conversation brief and in the user's language. Ask only for information that changes the next step; one decision at a time is usually enough. Setup supports the current task rather than replacing it.
 
 ## Optional personal or organization context

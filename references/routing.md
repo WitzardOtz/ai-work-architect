@@ -1,5 +1,7 @@
 # Routing
 
+[English](routing.md) | [Italiano](../docs/it/references/routing.md)
+
 ## Capability requirements before resource names
 
 Translate the Task Signature into required/important/optional capabilities, then build the Execution Plan.

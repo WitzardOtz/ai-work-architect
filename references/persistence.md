@@ -1,5 +1,7 @@
 # Persistence architecture
 
+[English](persistence.md) | [Italiano](../docs/it/references/persistence.md)
+
 ## Principle
 
 Canonical state must survive sessions without being loaded wholesale into the LLM context.

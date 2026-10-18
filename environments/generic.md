@@ -1,5 +1,7 @@
 # Generic environment profile
 
+[English](generic.md) | [Italiano](../docs/it/environments/generic.md)
+
 For an unknown platform:
 
 1. determine whether it is local or cloud-isolated;

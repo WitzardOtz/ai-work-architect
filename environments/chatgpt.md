@@ -1,5 +1,7 @@
 # ChatGPT environment profile
 
+[English](chatgpt.md) | [Italiano](../docs/it/environments/chatgpt.md)
+
 Treat each ChatGPT surface as a distinct environment.
 
 ## Cloud chat

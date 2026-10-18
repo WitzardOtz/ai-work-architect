@@ -1,5 +1,7 @@
 # Logging and learning
 
+[English](logging-learning.md) | [Italiano](../docs/it/references/logging-learning.md)
+
 ## Observability
 
 A substantive AWA invocation should create a compact persistent run trace when canonical storage is reachable.

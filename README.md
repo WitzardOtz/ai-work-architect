@@ -1,10 +1,14 @@
 # AI Work Architect v0.4.0
 
+[English](README.md) | [Italiano](README_IT.md)
+
 AWA helps decide **how to structure AI-assisted work** before choosing a model. It decomposes complex work, derives execution steps, matches those steps to tools/models/effort available in the current environment, generates handoffs when another workspace/device is better suited, and learns from run outcomes without loading its whole history into the model context.
 
-## Start here / Inizia da qui
+## Start here
 
-**[Guida pratica in italiano](USER_GUIDE_IT.md)** — installazione, primo utilizzo, configurazione aziendale, messaggio per i colleghi, accessi, continuita e limiti.
+**[Practical guide in English](USER_GUIDE_EN.md)** — installation, first use, company setup, colleague reuse, access, project continuity and limitations.
+
+**[Bilingual documentation index](docs/README.md)** — paired English and Italian versions of all human-readable documentation.
 
 | Your situation | Start with |
 |---|---|
@@ -20,6 +24,8 @@ The company wizard is conversational guidance followed by the host agent, not a 
 At first use, AWA checks for existing configuration and guides you through local or shared persistence when needed. Google Drive is optional. The agent verifies the available storage adapter, reports any access limitations, and resumes your task. Existing healthy profiles are reused without repeating setup. See [guided setup](references/first-run-setup.md).
 
 ## Latest skill updates — 18 October 2026
+
+- Paired English/Italian README, practical guides, skill instructions, operational references, environment notes and templates. Machine identifiers remain unchanged; the official Apache legal text is accompanied by explanations in both languages.
 
 - Short, verifiable tasks with project-owned plans, checkpoints and work logs let another agent resume without reconstructing chat history or requiring a formal handoff. See [the project work template](templates/project-work.md).
 - Optional [controlled improvement](references/controlled-improvement.md) compares a recoverable baseline with bounded candidates, uses separate validation cases, and records explicit decisions and stopping criteria. See [the experiment template](templates/improvement-experiment.md).
@@ -208,6 +214,8 @@ AWA v0.4.0 regression test: PASS
 v0.4 freezes the main architecture for real-world testing. Further changes should be driven primarily by closed runs and actual environment failures rather than additional speculative design.
 
 ## License
+
+See the [English explanation](docs/LICENSE_EN.md) or [Italian explanation](docs/it/LICENSE.md); the complete legal license is the unchanged English text in `LICENSE`.
 
 Copyright 2026 WitzardOtz.
 

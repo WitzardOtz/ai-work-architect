@@ -1,5 +1,7 @@
 # Guided organization context
 
+[English](organization-context-setup.md) | [Italiano](../docs/it/references/organization-context-setup.md)
+
 Use when the user asks to load company context, policies or operating rules, or chooses organizational use during first-run setup. This is a conversational wizard executed by the host agent. It adds no UI, accounts, document upload service or runtime access-control engine. Follow the user's language and ask one decision at a time when needed. Do not run onboarding again for a healthy, confirmed binding in the same scope.
 
 ## Entry and scope

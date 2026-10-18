@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "languages": [
+    "en",
+    "it"
+  ],
+  "scope": "human-readable documentation",
+  "pairs": [
+    {
+      "en": "README.md",
+      "it": "README_IT.md"
+    },
+    {
+      "en": "USER_GUIDE_EN.md",
+      "it": "USER_GUIDE_IT.md"
+    },
+    {
+      "en": "SKILL.md",
+      "it": "docs/it/SKILL.md"
+    },
+    {
+      "en": "SOURCES.md",
+      "it": "docs/it/SOURCES.md"
+    },
+    {
+      "en": "CHANGELOG.md",
+      "it": "docs/it/CHANGELOG.md"
+    },
+    {
+      "en": "docs/LICENSE_EN.md",
+      "it": "docs/it/LICENSE.md"
+    },
+    {
+      "en": "references/cloud-adapters.md",
+      "it": "docs/it/references/cloud-adapters.md"
+    },
+    {
+      "en": "references/controlled-improvement.md",
+      "it": "docs/it/references/controlled-improvement.md"
+    },
+    {
+      "en": "references/decomposition.md",
+      "it": "docs/it/references/decomposition.md"
+    },
+    {
+      "en": "references/environment-capabilities.md",
+      "it": "docs/it/references/environment-capabilities.md"
+    },
+    {
+      "en": "references/first-run-setup.md",
+      "it": "docs/it/references/first-run-setup.md"
+    },
+    {
+      "en": "references/logging-learning.md",
+      "it": "docs/it/references/logging-learning.md"
+    },
+    {
+      "en": "references/organization-context-setup.md",
+      "it": "docs/it/references/organization-context-setup.md"
+    },
+    {
+      "en": "references/persistence.md",
+      "it": "docs/it/references/persistence.md"
+    },
+    {
+      "en": "references/routing.md",
+      "it": "docs/it/references/routing.md"
+    },
+    {
+      "en": "references/signatures.md",
+      "it": "docs/it/references/signatures.md"
+    },
+    {
+      "en": "references/testing.md",
+      "it": "docs/it/references/testing.md"
+    },
+    {
+      "en": "templates/handoff-pack.md",
+      "it": "docs/it/templates/handoff-pack.md"
+    },
+    {
+      "en": "templates/improvement-experiment.md",
+      "it": "docs/it/templates/improvement-experiment.md"
+    },
+    {
+      "en": "templates/machine-examples.md",
+      "it": "docs/it/templates/machine-examples.md"
+    },
+    {
+      "en": "templates/organization-profile.md",
+      "it": "docs/it/templates/organization-profile.md"
+    },
+    {
+      "en": "templates/organization-sources.md",
+      "it": "docs/it/templates/organization-sources.md"
+    },
+    {
+      "en": "templates/project-brief.md",
+      "it": "docs/it/templates/project-brief.md"
+    },
+    {
+      "en": "templates/project-work.md",
+      "it": "docs/it/templates/project-work.md"
+    },
+    {
+      "en": "templates/task-contract.md",
+      "it": "docs/it/templates/task-contract.md"
+    },
+    {
+      "en": "environments/antigravity.md",
+      "it": "docs/it/environments/antigravity.md"
+    },
+    {
+      "en": "environments/chatgpt.md",
+      "it": "docs/it/environments/chatgpt.md"
+    },
+    {
+      "en": "environments/claude.md",
+      "it": "docs/it/environments/claude.md"
+    },
+    {
+      "en": "environments/codex.md",
+      "it": "docs/it/environments/codex.md"
+    },
+    {
+      "en": "environments/generic.md",
+      "it": "docs/it/environments/generic.md"
+    },
+    {
+      "en": "docs/README.md",
+      "it": "docs/it/README.md"
+    },
+    {
+      "en": "AGENTS.md",
+      "it": "docs/it/AGENTS.md"
+    }
+  ],
+  "shared_interfaces": [
+    "MANIFEST.json",
+    "templates/*.example.json",
+    "scripts/*.py",
+    "tests/*.py"
+  ],
+  "legal_text": "LICENSE",
+  "legal_explanations": {
+    "en": "docs/LICENSE_EN.md",
+    "it": "docs/it/LICENSE.md"
+  }
+}

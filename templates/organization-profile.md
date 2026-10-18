@@ -1,5 +1,7 @@
 # Organization context profile
 
+[English](organization-profile.md) | [Italiano](../docs/it/templates/organization-profile.md)
+
 Private working document. Fill from selected sources and confirmed answers; do not publish with the AWA skill. Empty fields remain unknown. Selection by a user is not proof that corporate policy has been approved.
 
 ## Identity and scope

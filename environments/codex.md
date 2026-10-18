@@ -1,5 +1,7 @@
 # Codex environment profile
 
+[English](codex.md) | [Italiano](../docs/it/environments/codex.md)
+
 When Codex runs locally with shell/filesystem access, prefer the local AWA CLI and a Google Drive for Desktop-synced Vault.
 
 Verify rather than assume:

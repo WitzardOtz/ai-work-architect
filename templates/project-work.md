@@ -1,5 +1,7 @@
 # Project work plan and checkpoint
 
+[English](project-work.md) | [Italiano](../docs/it/templates/project-work.md)
+
 Use this as a compact starting structure, not a mandatory form. Adapt to existing project files; remove guidance and fill fields from observed evidence. Keep task detail close to the next work, not an exhaustive speculative backlog.
 
 ## Project

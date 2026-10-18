@@ -1,5 +1,7 @@
 # Task decomposition
 
+[English](decomposition.md) | [Italiano](../docs/it/references/decomposition.md)
+
 ## Task boundary
 
 A Task is the smallest logical unit that stably owns:

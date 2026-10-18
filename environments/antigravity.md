@@ -1,5 +1,7 @@
 # Antigravity environment profile
 
+[English](antigravity.md) | [Italiano](../docs/it/environments/antigravity.md)
+
 Prior environment review indicates Antigravity can operate locally on Windows with filesystem/PowerShell command execution and can use Python/SQLite. Treat these as **environment evidence to verify**, not eternal guarantees.
 
 Preferred adapter:

@@ -1,5 +1,7 @@
 # Environment capability model
 
+[English](environment-capabilities.md) | [Italiano](../docs/it/references/environment-capabilities.md)
+
 ## Fundamental distinction
 
 **Knowledge is global; availability is local.**

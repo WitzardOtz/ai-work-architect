@@ -1,6 +1,10 @@
 # Changelog
 
+[English](CHANGELOG.md) | [Italiano](docs/it/CHANGELOG.md)
+
 ## Unreleased — 2026-10-18
+
+- Provide paired English/Italian README, practical guides, skill instructions, operational references, environment notes and templates with language links and a coverage index. Preserve machine identifiers and the official English Apache legal text, with separate Italian and English explanations.
 
 - Give the first company configurator a copyable colleague onboarding message using a verified shared profile reference; later users reuse company context while checking their own scope and access. Local-only references produce an explicit draft, not a false sharing claim.
 

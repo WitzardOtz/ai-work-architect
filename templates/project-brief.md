@@ -1,5 +1,7 @@
 # Project Brief
 
+[English](project-brief.md) | [Italiano](../docs/it/templates/project-brief.md)
+
 ## Mission
 
 ## Final deliverable
