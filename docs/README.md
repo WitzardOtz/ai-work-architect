@@ -8,7 +8,7 @@ All human-readable AWA documentation is available in English and Italian. Englis
 |---|---|---|
 | README.md | [English](../README.md) | [Italiano](../README_IT.md) |
 | USER_GUIDE_EN.md | [English](../USER_GUIDE_EN.md) | [Italiano](../USER_GUIDE_IT.md) |
-| SKILL.md | [English](../SKILL.md) | [Italiano](it/SKILL.md) |
+| SKILL.md | [English](../SKILL.md) | [Italiano](it/SKILL_IT.md) |
 | SOURCES.md | [English](../SOURCES.md) | [Italiano](it/SOURCES.md) |
 | CHANGELOG.md | [English](../CHANGELOG.md) | [Italiano](it/CHANGELOG.md) |
 | docs/LICENSE_EN.md | [English](LICENSE_EN.md) | [Italiano](it/LICENSE.md) |
