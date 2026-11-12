@@ -34,6 +34,19 @@ Un'esecuzione con `run.started` e senza `run.closed` viene rappresentata come `P
 
 Categorie utili: fatti, ragionamento, copertura, istruzioni, contesto, strumenti, formato, allucinazioni, stile, efficienza, architettura e scelta delle risorse.
 
+## Registrare le osservazioni
+
+Gli eventi delle esecuzioni non popolano da soli il registro delle risorse. Quando un'esecuzione chiusa fornisce evidenze utilizzabili su un modello, uno strumento, una skill o uno schema di esecuzione, registrarle come osservazione separata e interrogarle in seguito:
+
+```text
+python scripts/awa_cli.py observe-capability --resource-id <model-or-tool> --task-family <family> --capability <capability> --assessment <STRONG|ADEQUATE|WEAK> --confidence <LOW|MEDIUM|HIGH> --evidence-type <run|comparison|documentation>
+python scripts/awa_cli.py observe-skill --skill-id <skill> --version <version> --outcome <outcome>
+python scripts/awa_cli.py observe-pattern --pattern-id <pattern> --version <version> --outcome <outcome>
+python scripts/awa_cli.py query-context --task-family <family> --capability <capability>
+```
+
+La CLI attuale salva `assessment`, `confidence`, `evidence-type` e `outcome` come testo libero; i valori mostrati sono un vocabolario suggerito, non imposto. Usare l'identificatore esatto della risorsa, indicare impegno di ragionamento e strategia del contesto in `--configuration` (JSON) e mantenere le note compatte e prive di contenuti sensibili. Ogni osservazione porta con sé ambiente e data: leggerli entrambi prima di riutilizzarla.
+
 ## Governo dell'apprendimento
 
 ```text

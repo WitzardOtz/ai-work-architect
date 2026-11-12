@@ -18,3 +18,7 @@ Model-specific performance claims deliberately do not live in the Skill kernel. 
 ## Controlled improvement addition — 2026-10-18
 
 The optional protocol draws on [Harness2](https://github.com/google-research/harness2/tree/1cfe254e8d25b15f37048c3730134686abe60335), specifically evidence-linked proposals, Propose-Probe-Compose and KEEP_BASE. The reference and template are original AWA adaptations; no upstream runtime code is imported. Upstream benchmark results are not local AWA validation. See `references/controlled-improvement.md` for scope and adoption rules.
+
+## Environment review — 2026-11-12
+
+The Claude, Codex and Antigravity profiles were re-read against vendor documentation and changelogs, plus one observed Cowork session. Recorded changes: Cowork sessions may run in the cloud and reach user folders through the desktop app; a Vault on a virtual drive may be reachable file by file but not by the CLI; Antigravity added remote agents and moved per-project configuration; Codex added multi-agent features. Profiles carry a review date and remain evidence to verify. The review also found the resource registry of a real Vault empty after 17 runs, which motivated the explicit currency rule and the documented observation commands. No model names, prices or benchmark claims were added to the skill.

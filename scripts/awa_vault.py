@@ -29,8 +29,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-VERSION = "0.4.0"
+VERSION = "0.5.0"
 SCHEMA_VERSION = "1.0"
+# Bump when projection logic changes: a cache built by older logic is rebuilt from events.
+CACHE_VERSION = "0.5"
 CROCKFORD = "0123456789ABCDEFGHJKMNPQRSTVWXYZ"
 ALLOWED_OUTCOMES = {
     "FIRST_PASS_ACCEPTED",
@@ -270,7 +272,14 @@ class AWAVault:
         self.conn.execute("PRAGMA synchronous=NORMAL")
         self.conn.execute("PRAGMA busy_timeout=30000")
         self.conn.executescript(CACHE_SCHEMA)
-        self.conn.execute("INSERT INTO meta(key,value) VALUES('cache_schema','0.4') ON CONFLICT(key) DO UPDATE SET value=excluded.value")
+        row = self.conn.execute("SELECT value FROM meta WHERE key='cache_schema'").fetchone()
+        if row and row[0] != CACHE_VERSION:
+            # The cache is disposable: rebuild it rather than trust an older projection.
+            self.rebuild_cache()
+        self._stamp_meta()
+
+    def _stamp_meta(self) -> None:
+        self.conn.execute("INSERT INTO meta(key,value) VALUES('cache_schema',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (CACHE_VERSION,))
         self.conn.execute("INSERT INTO meta(key,value) VALUES('vault_root',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (str(self.root),))
         self.conn.commit()
 
@@ -367,7 +376,8 @@ class AWAVault:
         count = 0
         if not self.events_root.exists():
             return 0
-        for path in self.events_root.rglob("*.json"):
+        # Sorted for determinism only: projection must not depend on arrival order.
+        for path in sorted(self.events_root.rglob("*.json")):
             if path.name.startswith(".tmp-"):
                 continue
             before = self.conn.total_changes
@@ -386,9 +396,45 @@ class AWAVault:
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA journal_mode=WAL")
         self.conn.execute("PRAGMA synchronous=NORMAL")
+        self.conn.execute("PRAGMA busy_timeout=30000")
         self.conn.executescript(CACHE_SCHEMA)
-        self.conn.commit()
+        self._stamp_meta()
         return self.scan_new_events()
+
+    def _reproject_run(self, rid: str) -> None:
+        """Derive mutable run state from every event of the run seen so far.
+
+        Shared Vault events can arrive in any order (sync delay, another device,
+        a cache rebuild), so the state must not depend on ingestion order.
+        """
+        if not self.conn.execute("SELECT 1 FROM run_state WHERE run_id=?", (rid,)).fetchone():
+            return  # no run.started seen yet; it reprojects when it arrives
+        recommended = actual = closed_at = None
+        closed_payload: Dict[str, Any] = {}
+        updated = None
+        for r in self.conn.execute(
+                "SELECT event_type,occurred_at,payload_json FROM events WHERE run_id=? ORDER BY occurred_at,event_id", (rid,)):
+            etype, ts = r["event_type"], r["occurred_at"]
+            updated = ts if updated is None or ts > updated else updated
+            if etype == "run.recommended":
+                recommended = r["payload_json"]
+            elif etype in {"run.execution", "run.rerouted"}:
+                actual = r["payload_json"]
+            elif etype == "run.closed":
+                closed_at, closed_payload = ts, json.loads(r["payload_json"] or "{}")
+        if closed_at:
+            status = "CLOSED"
+            outcome = str(closed_payload.get("outcome", "OUTCOME_UNKNOWN")).upper()
+            if outcome not in ALLOWED_OUTCOMES:
+                outcome = "OUTCOME_UNKNOWN"
+        else:
+            status, outcome = "OPEN", "PENDING"
+        self.conn.execute(
+            """UPDATE run_state SET status=?,outcome=?,ended_at=?,failure_mode=?,notes=?,recommended_json=?,actual_json=?,
+               updated_at=COALESCE(?,updated_at) WHERE run_id=?""",
+            (status, outcome, closed_at, closed_payload.get("failure_mode"), closed_payload.get("notes"),
+             recommended, actual, updated, rid),
+        )
 
     def _project_event(self, event: Dict[str, Any]) -> None:
         etype = event["event_type"]
@@ -406,18 +452,9 @@ class AWAVault:
                 (rid, event.get("project_id"), normalize_token(event.get("task_family")), desc, event.get("environment"),
                  event.get("device_id"), event.get("architect_version"), ts, ts),
             )
-        elif etype == "run.recommended" and rid:
-            self.conn.execute("UPDATE run_state SET recommended_json=?,updated_at=? WHERE run_id=?", (json.dumps(payload, ensure_ascii=False, separators=(",", ":")), ts, rid))
-        elif etype in {"run.execution", "run.rerouted"} and rid:
-            self.conn.execute("UPDATE run_state SET actual_json=?,updated_at=? WHERE run_id=?", (json.dumps(payload, ensure_ascii=False, separators=(",", ":")), ts, rid))
-        elif etype == "run.closed" and rid:
-            outcome = str(payload.get("outcome", "OUTCOME_UNKNOWN")).upper()
-            if outcome not in ALLOWED_OUTCOMES:
-                outcome = "OUTCOME_UNKNOWN"
-            self.conn.execute(
-                "UPDATE run_state SET status='CLOSED',outcome=?,ended_at=?,failure_mode=?,notes=?,updated_at=? WHERE run_id=?",
-                (outcome, ts, payload.get("failure_mode"), payload.get("notes"), ts, rid),
-            )
+            self._reproject_run(rid)
+        elif etype in {"run.recommended", "run.execution", "run.rerouted", "run.closed"} and rid:
+            self._reproject_run(rid)
         elif etype == "environment.profile_published":
             env_id = str(payload.get("environment_id") or event.get("environment") or "unknown")
             dev_id = str(payload.get("device_id") or event.get("device_id") or "unknown")
@@ -427,7 +464,8 @@ class AWAVault:
                 """INSERT INTO environment_profiles(environment_key,device_id,environment_id,session_id,capabilities_json,last_verified,source_event_id)
                    VALUES(?,?,?,?,?,?,?) ON CONFLICT(environment_key) DO UPDATE SET device_id=excluded.device_id,
                    environment_id=excluded.environment_id,session_id=excluded.session_id,capabilities_json=excluded.capabilities_json,
-                   last_verified=excluded.last_verified,source_event_id=excluded.source_event_id""",
+                   last_verified=excluded.last_verified,source_event_id=excluded.source_event_id
+                   WHERE excluded.last_verified >= environment_profiles.last_verified""",
                 (env_key, dev_id, env_id, payload.get("session_id"), json.dumps(caps, ensure_ascii=False, separators=(",", ":")),
                  payload.get("last_verified") or ts, event["event_id"]),
             )

@@ -8,7 +8,7 @@ It is a skill with instructions, templates and supporting tools. The wizard is a
 
 ## 1. Install and start
 
-Download or clone the repository and install its folder as `ai-work-architect` in the skills location supported by your AI environment. `SKILL.md` must be at the folder root. GitHub's automatic ZIP may extract as `ai-work-architect-main`; rename that folder if necessary.
+Download or clone the repository and install its folder as `ai-work-architect` in the skills location supported by your AI environment. `SKILL.md` must be at the folder root, and the whole folder must be installed: the skill refers to its `references/`, `templates/`, `environments/` and `scripts/` folders. GitHub's automatic ZIP may extract as `ai-work-architect-main`; rename that folder if necessary.
 
 Then tell the agent:
 

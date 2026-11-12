@@ -39,6 +39,8 @@ Initial event types:
 - `skill.observed`
 - `pattern.observed`
 
+`project.updated` and `artifact.registered` are reserved names: the current CLI neither writes nor projects them.
+
 Event headers should remain compact:
 
 ```json
@@ -47,7 +49,7 @@ Event headers should remain compact:
   "event_id": "<ULID>",
   "occurred_at": "<UTC timestamp>",
   "event_type": "run.closed",
-  "architect_version": "0.4.0",
+  "architect_version": "0.5.0",
   "environment": "claude-cowork",
   "device_id": "MY-PC",
   "run_id": "R_<ULID>",
@@ -89,6 +91,8 @@ Cloud readers should prefer an index/search first, then targeted event reads.
 ## SQLite cache
 
 The cache is local, WAL-enabled and rebuildable from Vault events. It must not be placed in the shared/synced canonical folder.
+
+Projected state does not depend on the order in which event files arrive: run state is derived from all events of the run seen so far, and the most recently verified environment profile wins. A cache built by an older projection version is rebuilt automatically.
 
 ## Privacy
 

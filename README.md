@@ -1,4 +1,4 @@
-# AI Work Architect v0.4.0
+# AI Work Architect v0.5.0
 
 [English](README.md) | [Italiano](README_IT.md)
 
@@ -23,13 +23,15 @@ The company wizard is conversational guidance followed by the host agent, not a 
 
 At first use, AWA checks for existing configuration and guides you through local or shared persistence when needed. Google Drive is optional. The agent verifies the available storage adapter, reports any access limitations, and resumes your task. Existing healthy profiles are reused without repeating setup. See [guided setup](references/first-run-setup.md).
 
-## Latest skill updates — 18 October 2026
+## Latest release — v0.5.0, 12 November 2026
 
 - Paired English/Italian README, practical guides, skill instructions, operational references, environment notes and templates. Machine identifiers remain unchanged; the official Apache legal text is accompanied by explanations in both languages.
 
 - Short, verifiable tasks with project-owned plans, checkpoints and work logs let another agent resume without reconstructing chat history or requiring a formal handoff. See [the project work template](templates/project-work.md).
 - Optional [controlled improvement](references/controlled-improvement.md) compares a recoverable baseline with bounded candidates, uses separate validation cases, and records explicit decisions and stopping criteria. See [the experiment template](templates/improvement-experiment.md).
-- The runtime remains v0.4.0. These instruction changes are recorded under Unreleased in [CHANGELOG.md](CHANGELOG.md). Structural checks and runtime tests pass; comparative behavioral efficacy has not yet been established.
+- Model and tool knowledge is treated as perishable: AWA checks what the current environment offers before naming a resource, and the [observation commands](references/logging-learning.md) that build its evidence are documented.
+- Environment profiles for Claude, Codex and Antigravity were reviewed and dated; `SKILL.md` now references the CLI and every supporting file.
+- All changes are listed in [CHANGELOG.md](CHANGELOG.md). Structural checks and runtime tests pass; comparative behavioral efficacy has not yet been established.
 
 ## Get the skill
 
@@ -38,6 +40,8 @@ Clone this repository, or download its ZIP and place the extracted folder under 
 ```bash
 git clone https://github.com/WitzardOtz/ai-work-architect.git
 ```
+
+Install the complete folder, not `SKILL.md` alone: the entrypoint refers to files under `references/`, `templates/`, `environments/` and `scripts/`. For a host that takes an upload, zip the folder so the archive contains `ai-work-architect/SKILL.md`. The instructions need no runtime; the optional local CLI needs Python 3.9 or later and uses only the standard library.
 
 The repository contains reusable instructions, scripts, templates and tests. Your personal configuration, Vault events, caches and run artifacts belong outside this package and are not included. Installing the skill does not connect accounts or configure shared persistence; the first-run instructions guide that choice.
 
@@ -154,6 +158,31 @@ python scripts/awa_cli.py compact
 
 This generates rebuildable views under `AWA/index/` such as `pending.json`, `recent-runs.json`, `environments.json` and `capability-view.json`. Event files remain the source of truth.
 
+### Record and query evidence
+
+```bash
+python scripts/awa_cli.py observe-capability \
+  --resource-id EXAMPLE_MODEL \
+  --task-family data-to-insight \
+  --capability long-context-synthesis \
+  --assessment ADEQUATE --confidence LOW --evidence-type run
+
+python scripts/awa_cli.py query-context --task-family data-to-insight
+```
+
+Run events alone do not build resource knowledge; observations do. See [logging and learning](references/logging-learning.md).
+
+### Inspect and repair
+
+```bash
+python scripts/awa_cli.py --version
+python scripts/awa_cli.py status
+python scripts/awa_cli.py env-list
+python scripts/awa_cli.py rebuild-cache
+```
+
+Every command accepts `--help`. A missing configuration or invalid input produces a one-line error and exit code 2.
+
 ## Vault layout
 
 ```text
@@ -200,14 +229,18 @@ The event model is intentionally sync-friendly:
 ```bash
 python tests/smoke_test.py
 python tests/regression_test.py
+python tests/package_check.py
 ```
 
 Expected:
 
 ```text
-AWA v0.4.0 smoke test: PASS
-AWA v0.4.0 regression test: PASS
+AWA v0.5.0 smoke test: PASS
+AWA v0.5.0 regression test: PASS
+AWA v0.5.0 package check: PASS
 ```
+
+The first two exercise the runtime in temporary folders. The third checks the package structure: frontmatter, local links, language pairs and version consistency.
 
 ## Design status
 

@@ -32,6 +32,19 @@ A run with `run.started` and no `run.closed` is projected as `PENDING`.
 
 Useful categories include factual, reasoning, coverage, instruction, context, tool, format, hallucination, style, efficiency, architecture and routing.
 
+## Recording observations
+
+Run events alone do not populate the resource registry. When a closed run gives usable evidence about a model, tool, Skill or execution pattern, record it as a separate observation and query it later:
+
+```text
+python scripts/awa_cli.py observe-capability --resource-id <model-or-tool> --task-family <family> --capability <capability> --assessment <STRONG|ADEQUATE|WEAK> --confidence <LOW|MEDIUM|HIGH> --evidence-type <run|comparison|documentation>
+python scripts/awa_cli.py observe-skill --skill-id <skill> --version <version> --outcome <outcome>
+python scripts/awa_cli.py observe-pattern --pattern-id <pattern> --version <version> --outcome <outcome>
+python scripts/awa_cli.py query-context --task-family <family> --capability <capability>
+```
+
+The current CLI stores `assessment`, `confidence`, `evidence-type` and `outcome` as free text; the values shown are a suggested vocabulary, not an enforced one. Use the resource's exact identifier, put effort and context strategy in `--configuration` (JSON), and keep notes compact and free of sensitive content. Each observation carries its environment and date; read both before reusing it.
+
 ## Learning governance
 
 ```text

@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from pathlib import Path
 from typing import Any, Dict
 
@@ -29,6 +30,7 @@ def load_config(path: str | None) -> AWAConfig:
 
 def parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description=f"AI Work Architect CLI v{VERSION}")
+    p.add_argument("--version", action="version", version=f"awa {VERSION}")
     p.add_argument("--config", help="Path to AWA config.json")
     sub = p.add_subparsers(dest="cmd", required=True)
 
@@ -130,8 +132,24 @@ def parser() -> argparse.ArgumentParser:
     return p
 
 
+def fail(message: str) -> None:
+    print(f"error: {message}", file=sys.stderr)
+    raise SystemExit(2)
+
+
 def main() -> None:
     args = parser().parse_args()
+    try:
+        run(args)
+    except FileNotFoundError as exc:
+        fail(str(exc))
+    except json.JSONDecodeError as exc:
+        fail(f"invalid JSON input: {exc}")
+    except ValueError as exc:
+        fail(str(exc))
+
+
+def run(args: argparse.Namespace) -> None:
     cfg_path = Path(args.config) if args.config else default_config_path()
 
     if args.cmd in {"init-local", "init-shared"}:

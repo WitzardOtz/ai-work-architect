@@ -25,6 +25,10 @@ Real validation should include:
 
 Prefer 5–10 real runs before redesigning the architecture again, unless a blocking bug appears.
 
+## Package self-check
+
+Before publishing a change, run `python tests/package_check.py` from the skill folder. It checks the skill frontmatter, local Markdown links, paired English/Italian coverage, version consistency across code, manifest and documentation, and the absence of private paths. It verifies structure only.
+
 ## Optional improvement experiments
 
 When evaluating an AWA change, follow [controlled-improvement.md](controlled-improvement.md). Fix criteria and budget before execution, compare a preserved baseline and candidate, and use separate validation cases. Recheck a composed candidate. Existing runtime tests and the skill validator verify structure/runtime compatibility; they do not establish that routing, decomposition or user outcomes improved. Record behavioral efficacy as not tested until an actual comparison supports it.

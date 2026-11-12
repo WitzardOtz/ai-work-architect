@@ -38,6 +38,16 @@ Per ogni passaggio:
 - Modello × impegno di ragionamento × ambiente conta più del solo nome del modello.
 - Ottimizzare il costo totale fino a un output accettato, non il prezzo grezzo della chiamata.
 
+## Attualità della conoscenza delle risorse
+
+Nomi, prezzi, limiti e funzioni di modelli e strumenti sono deperibili e restano volutamente fuori da questa skill. Evidenze per una scelta concreta, in ordine di preferenza:
+
+1. ciò che l'ambiente corrente offre ora in modo verificabile (selettore dei modelli, inventario degli strumenti, documentazione del fornitore consultata nella sessione);
+2. osservazioni datate nel Vault (`query-context`), lette insieme ad ambiente e data;
+3. le conoscenze interne del modello host, trattate come potenzialmente superate.
+
+Considerare superata un'osservazione quando esiste una generazione più recente di quella risorsa o, come regola pratica, quando ha più di circa tre mesi, e riverificarla prima che una decisione ne dipenda. Senza evidenze attuali, raccomandare classe di risorsa e impegno di ragionamento, indicare un modello specifico solo come suggerimento non verificato e dire che cosa lo confermerebbe. Dopo la chiusura di un'esecuzione, registrare ciò che si è appreso (vedere [logging-learning.md](logging-learning.md)). Un registro vuoto significa assenza di evidenze, non una scelta neutra predefinita.
+
 ## Contesto aziendale
 
 Per un'organizzazione collegata, seguire [organization-context-setup.md](organization-context-setup.md). Leggere il profilo compatto e verificarne ambito e revisione prima di scegliere le risorse. Intersecare i requisiti del task con capacità verificate e permessi applicabili. Uno strumento disponibile non è automaticamente autorizzato. Recuperare solo fonti pertinenti; mantenere esplicite le informazioni sconosciute, segnalare conflitti e fermare solo l'azione interessata quando non si può accertare un permesso necessario. Le preferenze restano subordinate ai vincoli obbligatori applicabili e alle istruzioni che governano l'host.

@@ -39,6 +39,8 @@ Tipi di evento iniziali:
 - `skill.observed`
 - `pattern.observed`
 
+`project.updated` e `artifact.registered` sono nomi riservati: la CLI attuale non li scrive e non li proietta.
+
 Le intestazioni degli eventi restano compatte:
 
 ```json
@@ -47,7 +49,7 @@ Le intestazioni degli eventi restano compatte:
   "event_id": "<ULID>",
   "occurred_at": "<UTC timestamp>",
   "event_type": "run.closed",
-  "architect_version": "0.4.0",
+  "architect_version": "0.5.0",
   "environment": "claude-cowork",
   "device_id": "MY-PC",
   "run_id": "R_<ULID>",
@@ -89,6 +91,8 @@ I lettori cloud devono preferire indici o ricerca, poi letture mirate degli even
 ## Cache SQLite
 
 La cache è locale, usa WAL ed è ricostruibile dagli eventi del Vault. Non deve trovarsi nella cartella canonica condivisa o sincronizzata.
+
+Lo stato proiettato non dipende dall'ordine di arrivo dei file di eventi: lo stato di un'esecuzione deriva da tutti i suoi eventi visti finora e prevale il profilo d'ambiente verificato più di recente. Una cache costruita con una versione precedente della proiezione viene ricostruita automaticamente.
 
 ## Riservatezza
 

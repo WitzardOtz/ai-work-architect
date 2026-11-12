@@ -7,9 +7,9 @@ description: >-
 
 # AI Work Architect
 
-[English](../../SKILL.md) | [Italiano](SKILL.md)
+[English](../../SKILL.md) | [Italiano](SKILL_IT.md)
 
-Versione: 0.4.0
+Versione: 0.5.0
 
 ## Missione
 
@@ -191,6 +191,8 @@ Profilo di calcolo predefinito: `BALANCED`.
 
 L'impegno di ragionamento è distinto dalla scelta del modello. Conseguenze elevate non implicano automaticamente il massimo ragionamento: verifiche più forti possono essere un investimento migliore.
 
+La conoscenza delle risorse è deperibile. Gamma dei modelli, prezzi, limiti e funzioni dei prodotti cambiano più in fretta di questa skill e possono essere successivi alle conoscenze del modello host. Quando la scelta concreta di modello o strumento conta, verificare che cosa offre davvero l'ambiente corrente (selettore dei modelli, inventario degli strumenti, documentazione ufficiale, un'osservazione datata nel Vault) prima di indicarne uno. Senza evidenze attuali, raccomandare la classe di risorsa e l'impegno di ragionamento e segnalare come non verificato ogni nome specifico. Vedere `references/routing.md`.
+
 ## 9. Contesto e spazio di lavoro
 
 Usare il contesto minimo sufficiente: nucleo compatto del progetto, pacchetto del task, evidenze selezionate e artefatti analitici invece di grandi dataset grezzi.
@@ -280,6 +282,10 @@ Stati degli esiti:
 
 L'utente non deve ricordare gli ID: preferire `pending` / `close-latest` filtrati per progetto/task/ambiente quando è disponibile una CLI locale.
 
+Adattatori: con Python locale e accesso al filesystem del Vault verificati, usare la CLI inclusa in `scripts/awa_cli.py` (percorso relativo alla cartella della skill; `--help` elenca i comandi). Altrimenti seguire `references/cloud-adapters.md`. Se nessuno dei due può scrivere nel Vault configurato, la persistenza della sessione è `DEGRADED`: dichiararlo.
+
+Gli eventi delle esecuzioni non costruiscono da soli la conoscenza delle risorse. Quando un'esecuzione chiusa fornisce evidenze utilizzabili su un modello, uno strumento, una skill o uno schema, registrarle come osservazione separata; vedere `references/logging-learning.md`.
+
 Non caricare tutto il Vault/registro nel contesto. **Interrogare o indicizzare prima, poi recuperare pochi record pertinenti.**
 
 ## 12. Output visibile
@@ -299,6 +305,8 @@ Per grandi progetti mostrare architettura e dipendenze del lavoro a breve termin
 
 Leggere solo quando necessari:
 
+- `references/first-run-setup.md`
+- `references/organization-context-setup.md`
 - `references/persistence.md`
 - `references/environment-capabilities.md`
 - `references/decomposition.md`
@@ -306,9 +314,14 @@ Leggere solo quando necessari:
 - `references/routing.md`
 - `references/logging-learning.md`
 - `references/cloud-adapters.md`
+- `references/controlled-improvement.md`
 - `references/testing.md`
 - profili sotto `environments/`;
+- CLI locale sotto `scripts/awa_cli.py`;
 - pacchetto di contesto sotto `templates/handoff-pack.md`;
-- file di lavoro riprendibile sotto `templates/project-work.md`.
+- file di lavoro riprendibile sotto `templates/project-work.md`;
+- brief di progetto, contratto del task, esperimento di miglioramento, profilo aziendale/indice delle fonti ed esempi leggibili dal software sotto `templates/`.
+
+Tutti i percorsi sono relativi alla cartella della skill. Se questa installazione contiene solo `SKILL.md`, applicare le regole precedenti senza i file mancanti, indicare all'utente quale procedura guidata non è disponibile e non inventare mai il contenuto di un riferimento, modello o script assente.
 
 Il nucleo runtime deve restare piccolo; le tassonomie dettagliate appartengono ai riferimenti, non alla conversazione ordinaria.

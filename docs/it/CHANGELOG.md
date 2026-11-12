@@ -2,7 +2,18 @@
 
 [English](../../CHANGELOG.md) | [Italiano](CHANGELOG.md)
 
-## Unreleased — 18 ottobre 2026
+## 0.5.0 — 12 novembre 2026
+
+- Rilasciare le modifiche alle istruzioni finora elencate come non rilasciate (sotto) e aggiornare la versione del runtime, così che le copie installate siano distinguibili. Gli schemi di configurazione, eventi e cache restano invariati.
+- Correggere la dipendenza dello stato delle esecuzioni dall'ordine di acquisizione dei file di eventi. Una ricostruzione della cache o una sincronizzazione fuori ordine poteva lasciare in sospeso esecuzioni chiuse e perderne i dati di raccomandazione/esecuzione; il test di base falliva in modo intermittente per questo motivo. Lo stato deriva ora da tutti gli eventi dell'esecuzione, prevale il profilo d'ambiente verificato più di recente e le cache costruite con la logica precedente vengono ricostruite automaticamente. File di eventi e schemi restano invariati.
+- Aggiungere una regola esplicita sulla deperibilità della conoscenza di modelli e strumenti: verificare l'offerta dell'ambiente corrente prima di indicare una risorsa e segnalare come tali i nomi non verificati.
+- Documentare i comandi di osservazione (`observe-capability`, `observe-skill`, `observe-pattern`, `query-context`); gli eventi delle esecuzioni non costruiscono da soli la conoscenza delle risorse.
+- Rinominare la traduzione italiana della skill in `docs/it/SKILL_IT.md`: un pacchetto con due file chiamati `SKILL.md` viene rifiutato dagli host che installano tramite caricamento, quindi la cartella completa non era installabile lì.
+- Richiamare da `SKILL.md` la CLI inclusa e tutti i file di supporto, e definire il comportamento di un'installazione con il solo `SKILL.md`.
+- Rivedere i profili degli ambienti Claude, Codex e Antigravity (sessioni Cowork nel cloud, agenti remoti, funzioni multi-agente) e aggiungere le date di revisione.
+- Indicare `project.updated` e `artifact.registered` come nomi di evento riservati, non scritti dalla CLI attuale.
+- CLI: aggiungere `--version`; segnalare configurazione mancante, esito non valido o JSON non valido con un errore di una riga e codice di uscita 2.
+- Aggiungere `tests/package_check.py` e un flusso di integrazione continua; i test stampano la versione letta dal codice. Dichiarare il requisito Python (3.9+).
 
 - Rendere bilingue la documentazione: README, guide pratiche, istruzioni della skill, riferimenti operativi, note sugli ambienti e modelli in inglese e italiano, con collegamenti tra le versioni e indice di copertura. Gli identificatori tecnici restano invariati e il testo legale Apache resta quello ufficiale inglese, con spiegazione italiana separata.
 - Fornire al primo configuratore un messaggio copiabile per i colleghi con riferimento condiviso verificato. Gli utenti successivi riusano il contesto aziendale verificando accessi e ambito propri. Riferimenti solo locali producono una bozza esplicita, non una falsa promessa di condivisione.

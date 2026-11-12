@@ -1,0 +1,31 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Python 3.9 is the oldest supported version; current Ubuntu runners no longer provide it.
+        include:
+          - {os: windows-latest, python: "3.9"}
+          - {os: windows-latest, python: "3.13"}
+          - {os: ubuntu-latest, python: "3.13"}
+          - {os: ubuntu-latest, python: "3.x"}
+    env:
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python tests/smoke_test.py
+      - run: python tests/regression_test.py
+      - run: python tests/package_check.py
