@@ -7,7 +7,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
 sys.path.insert(0, str(SCRIPTS))
-from awa_vault import AWAConfig, AWAVault  # noqa
+from awa_vault import AWAConfig, AWAVault, VERSION  # noqa
 
 
 def check(cond, msg):
@@ -60,7 +60,7 @@ def main():
         finally:
             v2.close()
 
-    print("AWA v0.4.0 smoke test: PASS")
+    print(f"AWA v{VERSION} smoke test: PASS")
 
 
 if __name__ == "__main__":
