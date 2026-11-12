@@ -2,7 +2,18 @@
 
 [English](CHANGELOG.md) | [Italiano](docs/it/CHANGELOG.md)
 
-## Unreleased — 2026-10-18
+## 0.5.0 — 2026-11-12
+
+- Release the instruction changes previously listed as unreleased (below) and bump the runtime version so installed copies can be told apart. Config, event and cache schemas are unchanged.
+- Fix run state depending on the order in which event files were ingested. A cache rebuild or an out-of-order sync could leave closed runs pending and drop their recommendation/execution data; the smoke test failed intermittently for this reason. Run state is now derived from all events of the run, the most recently verified environment profile wins, and caches built by the older logic are rebuilt automatically. Event files and schemas are unchanged.
+- Add an explicit rule that model/tool knowledge is perishable: verify the current environment's offer before naming a resource, and mark unverified names as such.
+- Document the observation commands (`observe-capability`, `observe-skill`, `observe-pattern`, `query-context`); run events alone do not build resource knowledge.
+- Rename the Italian skill translation to `docs/it/SKILL_IT.md`: a package with two files named `SKILL.md` is rejected by upload-based hosts, so the complete folder could not be installed there.
+- Reference the bundled CLI and every supporting file from `SKILL.md`, and define the behavior of a `SKILL.md`-only installation.
+- Review the Claude, Codex and Antigravity environment profiles (cloud Cowork sessions, remote agents, multi-agent features) and add review dates.
+- Mark `project.updated` and `artifact.registered` as reserved event names not written by the current CLI.
+- CLI: add `--version`; report a missing configuration, an invalid outcome or invalid JSON as a one-line error with exit code 2.
+- Add `tests/package_check.py` and a CI workflow; tests print the version from the code. State the Python requirement (3.9+).
 
 - Provide paired English/Italian README, practical guides, skill instructions, operational references, environment notes and templates with language links and a coverage index. Preserve machine identifiers and the official English Apache legal text, with separate Italian and English explanations.
 

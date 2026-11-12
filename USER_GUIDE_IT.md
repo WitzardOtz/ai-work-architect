@@ -8,7 +8,7 @@ AWA aiuta un agente AI a organizzare il lavoro: chiarire il risultato, dividerlo
 
 ## 1. Installare e iniziare
 
-Scarica o clona il repository e installa la cartella come `ai-work-architect` nella posizione prevista dal tuo ambiente AI. Il file `SKILL.md` deve trovarsi nella radice della cartella. Lo ZIP automatico di GitHub può estrarsi come `ai-work-architect-main`: in quel caso rinomina la cartella.
+Scarica o clona il repository e installa la cartella come `ai-work-architect` nella posizione prevista dal tuo ambiente AI. Il file `SKILL.md` deve trovarsi nella radice della cartella e va installata la cartella intera: la skill rimanda alle proprie cartelle `references/`, `templates/`, `environments/` e `scripts/`. Lo ZIP automatico di GitHub può estrarsi come `ai-work-architect-main`: in quel caso rinomina la cartella.
 
 Poi scrivi all'agente:
 

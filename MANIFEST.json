@@ -1,6 +1,6 @@
 {
   "name": "ai-work-architect",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "entrypoint": "SKILL.md",
   "persistence": {
     "canonical": "immutable_event_vault",
@@ -13,5 +13,6 @@
     "local_cache": "sqlite_disposable"
   },
   "python_dependencies": "stdlib-only",
+  "python_requires": ">=3.9",
   "license": "Apache-2.0"
 }

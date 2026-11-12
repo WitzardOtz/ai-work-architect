@@ -1,4 +1,4 @@
-# AI Work Architect v0.4.0
+# AI Work Architect v0.5.0
 
 [English](README.md) | [Italiano](README_IT.md)
 
@@ -21,12 +21,14 @@ Il wizard aziendale è una guida conversazionale seguita dall'agente host, non u
 
 AWA controlla la configurazione esistente e guida nella scelta di persistenza locale o condivisa quando necessario. Google Drive è opzionale. L'agente verifica l'adattatore disponibile, segnala limiti di accesso e riprende il task. I profili funzionanti vengono riutilizzati senza ripetere il setup. Vedere [configurazione iniziale](docs/it/references/first-run-setup.md).
 
-## Ultimi aggiornamenti della skill — 18 ottobre 2026
+## Ultima versione — v0.5.0, 12 novembre 2026
 
 - Documentazione in italiano e inglese, con versioni collegate per README, guide, istruzioni, riferimenti, ambienti e modelli. Vedere l'[indice bilingue](docs/it/README.md).
 - Task brevi e verificabili, con piano, checkpoint e log nei file del progetto, permettono a un altro agente di riprendere senza ricostruire la chat o richiedere un handoff formale. Vedere il [modello di lavoro](docs/it/templates/project-work.md).
 - Il [miglioramento controllato](docs/it/references/controlled-improvement.md) opzionale confronta una base recuperabile con candidate circoscritte, usa casi separati di validazione e registra decisioni e criteri di arresto. Vedere il [modello di esperimento](docs/it/templates/improvement-experiment.md).
-- Il runtime resta v0.4.0. Le modifiche alle istruzioni sono sotto Unreleased nel [registro modifiche](docs/it/CHANGELOG.md). Controlli strutturali e test runtime passano; l'efficacia comportamentale comparativa non è dimostrata.
+- La conoscenza di modelli e strumenti è trattata come deperibile: AWA verifica che cosa offre l'ambiente corrente prima di indicare una risorsa, e i [comandi di osservazione](docs/it/references/logging-learning.md) che ne costruiscono le evidenze sono documentati.
+- I profili degli ambienti Claude, Codex e Antigravity sono stati rivisti e datati; `SKILL.md` richiama ora la CLI e tutti i file di supporto.
+- Tutte le modifiche sono nel [registro modifiche](docs/it/CHANGELOG.md). Controlli strutturali e test runtime passano; l'efficacia comportamentale comparativa non è dimostrata.
 
 ## Ottenere la skill
 
@@ -35,6 +37,8 @@ Clonare il repository o scaricare lo ZIP e collocare la cartella estratta, chiam
 ```bash
 git clone https://github.com/WitzardOtz/ai-work-architect.git
 ```
+
+Installare la cartella completa, non il solo `SKILL.md`: il punto di ingresso rimanda a file sotto `references/`, `templates/`, `environments/` e `scripts/`. Per un host che accetta un caricamento, comprimere la cartella in modo che l'archivio contenga `ai-work-architect/SKILL.md`. Le istruzioni non richiedono alcun runtime; la CLI locale opzionale richiede Python 3.9 o successivo e usa solo la libreria standard.
 
 Il repository contiene istruzioni, script, modelli e test riutilizzabili. Configurazione personale, eventi del Vault, cache e artefatti restano fuori dal pacchetto. L'installazione non collega account o configura automaticamente la persistenza condivisa: il primo setup accompagna quella scelta.
 
@@ -151,6 +155,31 @@ python scripts/awa_cli.py compact
 
 Genera viste ricostruibili sotto `AWA/index/`: `pending.json`, `recent-runs.json`, `environments.json`, `capability-view.json`. Gli eventi restano la fonte autorevole.
 
+### Registrare e interrogare le evidenze
+
+```bash
+python scripts/awa_cli.py observe-capability \
+  --resource-id EXAMPLE_MODEL \
+  --task-family data-to-insight \
+  --capability long-context-synthesis \
+  --assessment ADEQUATE --confidence LOW --evidence-type run
+
+python scripts/awa_cli.py query-context --task-family data-to-insight
+```
+
+Gli eventi delle esecuzioni non costruiscono da soli la conoscenza delle risorse: lo fanno le osservazioni. Vedere [tracciamento e apprendimento](docs/it/references/logging-learning.md).
+
+### Consultare e riparare
+
+```bash
+python scripts/awa_cli.py --version
+python scripts/awa_cli.py status
+python scripts/awa_cli.py env-list
+python scripts/awa_cli.py rebuild-cache
+```
+
+Ogni comando accetta `--help`. Una configurazione mancante o un input non valido producono un errore di una riga e codice di uscita 2.
+
 ## Struttura del Vault
 
 ```text
@@ -197,14 +226,18 @@ Il modello degli eventi è pensato per la sincronizzazione:
 ```bash
 python tests/smoke_test.py
 python tests/regression_test.py
+python tests/package_check.py
 ```
 
 Risultati attesi:
 
 ```text
-AWA v0.4.0 smoke test: PASS
-AWA v0.4.0 regression test: PASS
+AWA v0.5.0 smoke test: PASS
+AWA v0.5.0 regression test: PASS
+AWA v0.5.0 package check: PASS
 ```
+
+I primi due esercitano il runtime in cartelle temporanee. Il terzo controlla la struttura del pacchetto: metadati iniziali, link locali, coppie linguistiche e coerenza della versione.
 
 ## Stato del progetto
 

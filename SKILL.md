@@ -7,9 +7,9 @@ description: >-
 
 # AI Work Architect
 
-[English](SKILL.md) | [Italiano](docs/it/SKILL.md)
+[English](SKILL.md) | [Italiano](docs/it/SKILL_IT.md)
 
-Version: 0.4.0
+Version: 0.5.0
 
 ## Mission
 
@@ -195,6 +195,8 @@ Default compute profile: `BALANCED`.
 
 Reasoning effort is separate from model choice. High stakes do not automatically imply maximum reasoning; stronger verification may be the better spend.
 
+Resource knowledge is perishable. Model lineups, prices, limits and product features change faster than this skill and may postdate the host model's own knowledge. When a concrete model/tool choice matters, check what the current environment actually offers (model picker, tool inventory, official documentation, a dated Vault observation) before naming one. Without current evidence, recommend the resource class and effort level and mark any specific name as unverified. See `references/routing.md`.
+
 ## 9. Context and workspace
 
 Use minimum sufficient context: compact Project Core, Task packet, selected/retrieved evidence and analytical artifacts rather than raw large datasets.
@@ -284,6 +286,10 @@ Outcome states:
 
 Users should not need to remember run IDs: prefer `pending` / `close-latest` scoped by project/task/environment when a local CLI is available.
 
+Adapters: with verified local Python and filesystem access to the Vault, use the bundled CLI at `scripts/awa_cli.py` (relative to this skill's folder; `--help` lists the commands). Otherwise follow `references/cloud-adapters.md`. If neither can write to the configured Vault, persistence is `DEGRADED` for the session: say so.
+
+Run events alone do not build resource knowledge. When a closed run yields usable evidence about a model, tool, Skill or pattern, record it as a separate observation; see `references/logging-learning.md`.
+
 Never load the whole Vault/Registry into model context. **Query/index first, then retrieve only the few relevant records.**
 
 ## 12. Visible output
@@ -303,6 +309,8 @@ For large projects, show the Project Architecture and near-term work graph; use 
 
 Read only when needed:
 
+- `references/first-run-setup.md`
+- `references/organization-context-setup.md`
 - `references/persistence.md`
 - `references/environment-capabilities.md`
 - `references/decomposition.md`
@@ -310,9 +318,14 @@ Read only when needed:
 - `references/routing.md`
 - `references/logging-learning.md`
 - `references/cloud-adapters.md`
+- `references/controlled-improvement.md`
 - `references/testing.md`
 - environment profiles under `environments/`
+- local CLI under `scripts/awa_cli.py`
 - Handoff Pack under `templates/handoff-pack.md`
 - Resumable project work file under `templates/project-work.md`
+- Project brief, task contract, improvement experiment, organization profile/source index and machine-readable examples under `templates/`
+
+All paths are relative to this skill's folder. If this installation contains only `SKILL.md`, apply the rules above without the missing files, tell the user which guided procedure is unavailable, and never invent the content of a missing reference, template or script.
 
 The runtime kernel should stay small; detailed taxonomies belong in references, not ordinary conversation.
