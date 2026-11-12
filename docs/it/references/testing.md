@@ -25,6 +25,10 @@ La validazione reale deve includere:
 
 Preferire 5–10 esecuzioni reali prima di riprogettare ancora l'architettura, salvo errori bloccanti.
 
+## Autoverifica del pacchetto
+
+Prima di pubblicare una modifica, eseguire `python tests/package_check.py` dalla cartella della skill. Controlla i metadati iniziali della skill, i link Markdown locali, la copertura delle coppie inglese/italiano, la coerenza della versione tra codice, manifest e documentazione e l'assenza di percorsi privati. Verifica soltanto la struttura.
+
 ## Esperimenti opzionali di miglioramento
 
 Per valutare una modifica di AWA, seguire [controlled-improvement.md](controlled-improvement.md). Fissare criteri e budget prima dell'esecuzione, confrontare una versione di base conservata e una candidata, usare casi di validazione separati. Ricontrollare un candidato composto. I test del runtime e il validatore della skill verificano struttura e compatibilità; non dimostrano miglioramenti nella scelta delle risorse, nella scomposizione o nei risultati dell'utente. Indicare l'efficacia comportamentale come non testata finché un confronto reale non la supporta.
