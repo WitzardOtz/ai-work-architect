@@ -8,7 +8,7 @@ Tutta la documentazione AWA destinata alla lettura è disponibile in inglese e i
 |---|---|---|
 | README.md | [English](../../README.md) | [Italiano](../../README_IT.md) |
 | USER_GUIDE_EN.md | [English](../../USER_GUIDE_EN.md) | [Italiano](../../USER_GUIDE_IT.md) |
-| SKILL.md | [English](../../SKILL.md) | [Italiano](SKILL.md) |
+| SKILL.md | [English](../../SKILL.md) | [Italiano](SKILL_IT.md) |
 | SOURCES.md | [English](../../SOURCES.md) | [Italiano](SOURCES.md) |
 | CHANGELOG.md | [English](../../CHANGELOG.md) | [Italiano](CHANGELOG.md) |
 | docs/LICENSE_EN.md | [English](../LICENSE_EN.md) | [Italiano](LICENSE.md) |
