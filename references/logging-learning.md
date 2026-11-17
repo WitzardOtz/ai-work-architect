@@ -43,7 +43,7 @@ python scripts/awa_cli.py observe-pattern --pattern-id <pattern> --version <vers
 python scripts/awa_cli.py query-context --task-family <family> --capability <capability>
 ```
 
-The current CLI stores `assessment`, `confidence`, `evidence-type` and `outcome` as free text; the values shown are a suggested vocabulary, not an enforced one. Use the resource's exact identifier, put effort and context strategy in `--configuration` (JSON), and keep notes compact and free of sensitive content. Each observation carries its environment and date; read both before reusing it.
+The current CLI stores `assessment`, `confidence`, `evidence-type` and `outcome` as free text; the values shown are a suggested vocabulary, not an enforced one. Use the resource's exact identifier, preferably its `id` in the public resource registry (see [resource-registry.md](resource-registry.md)), put effort and context strategy in `--configuration` (JSON), and keep notes compact and free of sensitive content. Each observation carries its environment and date; read both before reusing it.
 
 ## Learning governance
 

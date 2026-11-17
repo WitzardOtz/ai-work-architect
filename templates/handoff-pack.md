@@ -28,7 +28,7 @@ Only accepted findings relevant downstream.
 Stable IDs/paths/references. Do not duplicate large raw corpora unless required.
 
 ## Decisions already taken
-Do not reopen without new evidence.
+Do not reopen without new evidence. Still report any error you notice in earlier work.
 
 ## Open questions
 Questions this workspace must resolve.

@@ -43,10 +43,17 @@ For each step:
 Names, prices, limits and features of models and tools are perishable and are deliberately kept out of this skill. Evidence for a concrete choice, in order of preference:
 
 1. what the current environment verifiably offers now (model picker, tool inventory, provider documentation consulted in the session);
-2. dated observations in the Vault (`query-context`), read with their environment and date;
-3. the host model's built-in knowledge, treated as possibly outdated.
+2. the public resource registry, for what exists and what others measured (see [resource-registry.md](resource-registry.md));
+3. dated observations in the Vault (`query-context`), for what worked for this user, read with their environment and date;
+4. the host model's built-in knowledge, treated as possibly outdated.
 
 Treat an observation as stale when a newer generation of that resource exists, or as a rule of thumb when it is older than about three months, and re-verify before a decision depends on it. If no current evidence is available, recommend the resource class and effort level, name a specific model only as an unverified suggestion, and say what would confirm it. After a run closes, record what was learned (see [logging-learning.md](logging-learning.md)). An empty registry means no evidence, not a neutral default.
+
+## Effort and delegation cost
+
+- Effort settings do not carry over between models or model versions. Re-measure when the model changes instead of reusing settings tuned for another one.
+- To reduce cost or latency, lower the effort setting. Instructions such as "think less" or "answer without deliberating" may not reduce thinking. Do not show the model a token budget in the prompt unless a test shows it helps: the size of the budget can change how much it spends.
+- Subagents and parallel workers add their own context and model cost and can account for most of a session's cost. Delegate when work is truly parallel, needs isolated context or independent review, and the gain exceeds the cost; otherwise work directly. Check which model and effort subagents use. Avoid standing "always delegate" instructions in prompts, skills or agent files.
 
 ## Organizational context
 

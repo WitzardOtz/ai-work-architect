@@ -1,4 +1,4 @@
-# AI Work Architect v0.5.0
+# AI Work Architect v0.6.0
 
 [English](README.md) | [Italiano](README_IT.md)
 
@@ -21,11 +21,12 @@ Il wizard aziendale è una guida conversazionale seguita dall'agente host, non u
 
 AWA controlla la configurazione esistente e guida nella scelta di persistenza locale o condivisa quando necessario. Google Drive è opzionale. L'agente verifica l'adattatore disponibile, segnala limiti di accesso e riprende il task. I profili funzionanti vengono riutilizzati senza ripetere il setup. Vedere [configurazione iniziale](docs/it/references/first-run-setup.md).
 
-## Ultima versione — v0.5.0, 12 novembre 2026
+## Ultima versione — v0.6.0, 17 novembre 2026
 
 - Documentazione in italiano e inglese, con versioni collegate per README, guide, istruzioni, riferimenti, ambienti e modelli. Vedere l'[indice bilingue](docs/it/README.md).
 - Task brevi e verificabili, con piano, checkpoint e log nei file del progetto, permettono a un altro agente di riprendere senza ricostruire la chat o richiedere un handoff formale. Vedere il [modello di lavoro](docs/it/templates/project-work.md).
 - Il [miglioramento controllato](docs/it/references/controlled-improvement.md) opzionale confronta una base recuperabile con candidate circoscritte, usa casi separati di validazione e registra decisioni e criteri di arresto. Vedere il [modello di esperimento](docs/it/templates/improvement-experiment.md).
+- AWA consulta il [registro pubblico delle risorse](https://github.com/WitzardOtz/awa-resource-registry) prima di indicare un modello: che cosa esiste e che cosa hanno misurato altri, con date e fonti. Il tuo Vault stabilisce che cosa ha funzionato per te; vedere [come si combinano](docs/it/references/resource-registry.md).
 - La conoscenza di modelli e strumenti è trattata come deperibile: AWA verifica che cosa offre l'ambiente corrente prima di indicare una risorsa, e i [comandi di osservazione](docs/it/references/logging-learning.md) che ne costruiscono le evidenze sono documentati.
 - I profili degli ambienti Claude, Codex e Antigravity sono stati rivisti e datati; `SKILL.md` richiama ora la CLI e tutti i file di supporto.
 - Tutte le modifiche sono nel [registro modifiche](docs/it/CHANGELOG.md). Controlli strutturali e test runtime passano; l'efficacia comportamentale comparativa non è dimostrata.
@@ -232,9 +233,9 @@ python tests/package_check.py
 Risultati attesi:
 
 ```text
-AWA v0.5.0 smoke test: PASS
-AWA v0.5.0 regression test: PASS
-AWA v0.5.0 package check: PASS
+AWA v0.6.0 smoke test: PASS
+AWA v0.6.0 regression test: PASS
+AWA v0.6.0 package check: PASS
 ```
 
 I primi due esercitano il runtime in cartelle temporanee. Il terzo controlla la struttura del pacchetto: metadati iniziali, link locali, coppie linguistiche e coerenza della versione.

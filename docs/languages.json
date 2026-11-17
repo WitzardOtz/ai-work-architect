@@ -63,6 +63,10 @@
       "it": "docs/it/references/persistence.md"
     },
     {
+      "en": "references/resource-registry.md",
+      "it": "docs/it/references/resource-registry.md"
+    },
+    {
       "en": "references/routing.md",
       "it": "docs/it/references/routing.md"
     },

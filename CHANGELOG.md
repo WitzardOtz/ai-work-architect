@@ -2,6 +2,13 @@
 
 [English](CHANGELOG.md) | [Italiano](docs/it/CHANGELOG.md)
 
+## 0.6.0 — 2026-11-17
+
+- Read the public [AWA resource registry](https://github.com/WitzardOtz/awa-resource-registry) before naming a model: facts, benchmark results and vendor guidance, each dated and sourced. Order of evidence: current environment, registry, Vault, host knowledge.
+- Vault evidence prevails over public benchmarks for a task family after at least three closed runs with the same resource; registry model IDs are used as Vault resource IDs.
+- Add guidance from the Claude Fable 5.2 prompting guide that applies to any model: effort settings do not carry over between models; lower effort instead of asking the model to think less; subagent cost; ownership and change scope in the task contract; a settled decision does not stop reporting an earlier error; phrase organization rules as approval steps rather than absolute bans; prune outdated cautions from project notes.
+- No change to the CLI, configuration, events or cache.
+
 ## 0.5.0 — 2026-11-12
 
 - Release the instruction changes previously listed as unreleased (below) and bump the runtime version so installed copies can be told apart. Config, event and cache schemas are unchanged.

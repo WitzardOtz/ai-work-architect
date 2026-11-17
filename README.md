@@ -1,4 +1,4 @@
-# AI Work Architect v0.5.0
+# AI Work Architect v0.6.0
 
 [English](README.md) | [Italiano](README_IT.md)
 
@@ -23,12 +23,13 @@ The company wizard is conversational guidance followed by the host agent, not a 
 
 At first use, AWA checks for existing configuration and guides you through local or shared persistence when needed. Google Drive is optional. The agent verifies the available storage adapter, reports any access limitations, and resumes your task. Existing healthy profiles are reused without repeating setup. See [guided setup](references/first-run-setup.md).
 
-## Latest release — v0.5.0, 12 November 2026
+## Latest release — v0.6.0, 17 November 2026
 
 - Paired English/Italian README, practical guides, skill instructions, operational references, environment notes and templates. Machine identifiers remain unchanged; the official Apache legal text is accompanied by explanations in both languages.
 
 - Short, verifiable tasks with project-owned plans, checkpoints and work logs let another agent resume without reconstructing chat history or requiring a formal handoff. See [the project work template](templates/project-work.md).
 - Optional [controlled improvement](references/controlled-improvement.md) compares a recoverable baseline with bounded candidates, uses separate validation cases, and records explicit decisions and stopping criteria. See [the experiment template](templates/improvement-experiment.md).
+- AWA reads the public [resource registry](https://github.com/WitzardOtz/awa-resource-registry) before naming a model: what exists and what others measured, dated and sourced. Your Vault decides what worked for you; see [how the two combine](references/resource-registry.md).
 - Model and tool knowledge is treated as perishable: AWA checks what the current environment offers before naming a resource, and the [observation commands](references/logging-learning.md) that build its evidence are documented.
 - Environment profiles for Claude, Codex and Antigravity were reviewed and dated; `SKILL.md` now references the CLI and every supporting file.
 - All changes are listed in [CHANGELOG.md](CHANGELOG.md). Structural checks and runtime tests pass; comparative behavioral efficacy has not yet been established.
@@ -235,9 +236,9 @@ python tests/package_check.py
 Expected:
 
 ```text
-AWA v0.5.0 smoke test: PASS
-AWA v0.5.0 regression test: PASS
-AWA v0.5.0 package check: PASS
+AWA v0.6.0 smoke test: PASS
+AWA v0.6.0 regression test: PASS
+AWA v0.6.0 package check: PASS
 ```
 
 The first two exercise the runtime in temporary folders. The third checks the package structure: frontmatter, local links, language pairs and version consistency.

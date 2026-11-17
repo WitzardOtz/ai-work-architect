@@ -20,6 +20,7 @@ All human-readable AWA documentation is available in English and Italian. Englis
 | references/logging-learning.md | [English](../references/logging-learning.md) | [Italiano](it/references/logging-learning.md) |
 | references/organization-context-setup.md | [English](../references/organization-context-setup.md) | [Italiano](it/references/organization-context-setup.md) |
 | references/persistence.md | [English](../references/persistence.md) | [Italiano](it/references/persistence.md) |
+| references/resource-registry.md | [English](../references/resource-registry.md) | [Italiano](it/references/resource-registry.md) |
 | references/routing.md | [English](../references/routing.md) | [Italiano](it/references/routing.md) |
 | references/signatures.md | [English](../references/signatures.md) | [Italiano](it/references/signatures.md) |
 | references/testing.md | [English](../references/testing.md) | [Italiano](it/references/testing.md) |

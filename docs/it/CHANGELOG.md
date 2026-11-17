@@ -2,6 +2,13 @@
 
 [English](../../CHANGELOG.md) | [Italiano](CHANGELOG.md)
 
+## 0.6.0 — 17 novembre 2026
+
+- Consultare il [registro pubblico delle risorse di AWA](https://github.com/WitzardOtz/awa-resource-registry) prima di indicare un modello: fatti, risultati dei benchmark e indicazioni dei fornitori, ciascuno con data e fonte. Ordine delle evidenze: ambiente corrente, registro, Vault, conoscenze del modello host.
+- Le evidenze del Vault prevalgono sui benchmark pubblici per un tipo di lavoro dopo almeno tre esecuzioni chiuse con la stessa risorsa; gli identificatori dei modelli nel registro si usano come identificatori delle risorse nel Vault.
+- Aggiungere le indicazioni della guida di Anthropic per Claude Fable 5.2 valide per ogni modello: le impostazioni di impegno di ragionamento non si trasferiscono tra modelli; abbassare l'impegno invece di chiedere al modello di pensare meno; costo dei sottoagenti; proprietà e ampiezza delle modifiche nel contratto del task; una decisione presa non impedisce di segnalare un errore precedente; formulare le regole aziendali come passaggi di approvazione e non come divieti assoluti; eliminare dalle note di progetto le cautele superate.
+- Nessuna modifica a CLI, configurazione, eventi o cache.
+
 ## 0.5.0 — 12 novembre 2026
 
 - Rilasciare le modifiche alle istruzioni finora elencate come non rilasciate (sotto) e aggiornare la versione del runtime, così che le copie installate siano distinguibili. Gli schemi di configurazione, eventi e cache restano invariati.

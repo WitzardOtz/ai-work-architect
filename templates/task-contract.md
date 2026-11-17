@@ -10,3 +10,4 @@
 - **Success criteria:**
 - **Verification:**
 - **Relevant environment constraints:**
+- **Ownership and change scope:** who owns the code or artifact, and whether minimal change or owner-level restructuring is expected

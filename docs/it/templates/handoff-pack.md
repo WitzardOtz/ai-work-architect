@@ -36,7 +36,7 @@ ID, percorsi o riferimenti stabili. Non duplicare grandi corpora grezzi se non n
 
 ## Decisioni già prese
 
-Non riaprirle senza nuove evidenze.
+Non riaprirle senza nuove evidenze. Segnalare comunque un errore notato nel lavoro precedente.
 
 ## Questioni aperte
 

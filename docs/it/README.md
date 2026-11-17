@@ -20,6 +20,7 @@ Tutta la documentazione AWA destinata alla lettura è disponibile in inglese e i
 | references/logging-learning.md | [English](../../references/logging-learning.md) | [Italiano](references/logging-learning.md) |
 | references/organization-context-setup.md | [English](../../references/organization-context-setup.md) | [Italiano](references/organization-context-setup.md) |
 | references/persistence.md | [English](../../references/persistence.md) | [Italiano](references/persistence.md) |
+| references/resource-registry.md | [English](../../references/resource-registry.md) | [Italiano](references/resource-registry.md) |
 | references/routing.md | [English](../../references/routing.md) | [Italiano](references/routing.md) |
 | references/signatures.md | [English](../../references/signatures.md) | [Italiano](references/signatures.md) |
 | references/testing.md | [English](../../references/testing.md) | [Italiano](references/testing.md) |
