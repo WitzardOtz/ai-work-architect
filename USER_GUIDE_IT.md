@@ -8,7 +8,7 @@ AWA aiuta un agente AI a organizzare il lavoro: chiarire il risultato, dividerlo
 
 ## 1. Installare e iniziare
 
-Scarica o clona il repository e installa la cartella come `ai-work-architect` nella posizione prevista dal tuo ambiente AI. Il file `SKILL.md` deve trovarsi nella radice della cartella e va installata la cartella intera: la skill rimanda alle proprie cartelle `references/`, `templates/`, `environments/` e `scripts/`. Lo ZIP automatico di GitHub può estrarsi come `ai-work-architect-main`: in quel caso rinomina la cartella.
+Scarica il pacchetto per il tuo ambiente dall'[ultima versione pubblicata](https://github.com/WitzardOtz/ai-work-architect/releases/latest): `ai-work-architect-codex-plugin.zip` per Codex, `ai-work-architect-skill.zip` per Claude, Claude Code, Antigravity e altri agenti. La tabella nel [README](README_IT.md#ottenere-la-skill) indica dove va ciascuno. Installa il pacchetto intero, non il solo `SKILL.md`, e dopo ogni nuova versione installa il nuovo pacchetto: una copia installata non si aggiorna da sola.
 
 Poi scrivi all'agente:
 

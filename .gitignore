@@ -10,6 +10,7 @@ events/
 index/
 cache/
 artifacts/
+dist/
 *.db
 *.db-shm
 *.db-wal

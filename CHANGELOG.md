@@ -2,6 +2,13 @@
 
 [English](CHANGELOG.md) | [Italiano](docs/it/CHANGELOG.md)
 
+## 0.6.1 — 2026-11-19
+
+- Add `scripts/build_release.py`, which builds two installable packages for each release: `ai-work-architect-skill.zip` (skill folder for Claude, Claude Code, Antigravity and other agents) and `ai-work-architect-codex-plugin.zip` (Codex plugin layout with `.codex-plugin/plugin.json`, so Codex shows the right version). Only package files are included.
+- README and practical guides: install table per environment, with links to the latest release packages; GitHub's automatic source archives are no longer the recommended way to install.
+- The package check now builds both packages and verifies their layout and manifest version.
+- No change to the skill's behavior, the CLI, configuration, events or cache.
+
 ## 0.6.0 — 2026-11-17
 
 - Read the public [AWA resource registry](https://github.com/WitzardOtz/awa-resource-registry) before naming a model: facts, benchmark results and vendor guidance, each dated and sourced. Order of evidence: current environment, registry, Vault, host knowledge.

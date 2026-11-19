@@ -8,7 +8,7 @@ It is a skill with instructions, templates and supporting tools. The wizard is a
 
 ## 1. Install and start
 
-Download or clone the repository and install its folder as `ai-work-architect` in the skills location supported by your AI environment. `SKILL.md` must be at the folder root, and the whole folder must be installed: the skill refers to its `references/`, `templates/`, `environments/` and `scripts/` folders. GitHub's automatic ZIP may extract as `ai-work-architect-main`; rename that folder if necessary.
+Download the package for your environment from the [latest release](https://github.com/WitzardOtz/ai-work-architect/releases/latest): `ai-work-architect-codex-plugin.zip` for Codex, `ai-work-architect-skill.zip` for Claude, Claude Code, Antigravity and other agents. The table in [the README](README.md#get-the-skill) says where each one goes. Install the whole package, not `SKILL.md` alone, and install the new package after each release: an installed copy does not update itself.
 
 Then tell the agent:
 

@@ -2,6 +2,13 @@
 
 [English](../../CHANGELOG.md) | [Italiano](CHANGELOG.md)
 
+## 0.6.1 — 19 novembre 2026
+
+- Aggiungere `scripts/build_release.py`, che crea due pacchetti installabili per ogni versione: `ai-work-architect-skill.zip` (cartella della skill per Claude, Claude Code, Antigravity e altri agenti) e `ai-work-architect-codex-plugin.zip` (struttura di plugin per Codex con `.codex-plugin/plugin.json`, così Codex mostra la versione giusta). Sono inclusi solo i file del pacchetto.
+- README e guide pratiche: tabella di installazione per ambiente, con collegamenti ai pacchetti dell'ultima versione; gli archivi sorgente automatici di GitHub non sono più il modo consigliato di installare.
+- Il controllo del pacchetto ora crea i due pacchetti e ne verifica struttura e versione del manifest.
+- Nessuna modifica al comportamento della skill, alla CLI, alla configurazione, agli eventi o alla cache.
+
 ## 0.6.0 — 17 novembre 2026
 
 - Consultare il [registro pubblico delle risorse di AWA](https://github.com/WitzardOtz/awa-resource-registry) prima di indicare un modello: fatti, risultati dei benchmark e indicazioni dei fornitori, ciascuno con data e fonte. Ordine delle evidenze: ambiente corrente, registro, Vault, conoscenze del modello host.

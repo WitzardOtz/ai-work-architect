@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-VERSION = "0.6.0"
+VERSION = "0.6.1"
 SCHEMA_VERSION = "1.0"
 # Bump when projection logic changes: a cache built by older logic is rebuilt from events.
 CACHE_VERSION = "0.5"

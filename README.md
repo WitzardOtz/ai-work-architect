@@ -1,4 +1,4 @@
-# AI Work Architect v0.6.0
+# AI Work Architect v0.6.1
 
 [English](README.md) | [Italiano](README_IT.md)
 
@@ -23,7 +23,9 @@ The company wizard is conversational guidance followed by the host agent, not a 
 
 At first use, AWA checks for existing configuration and guides you through local or shared persistence when needed. Google Drive is optional. The agent verifies the available storage adapter, reports any access limitations, and resumes your task. Existing healthy profiles are reused without repeating setup. See [guided setup](references/first-run-setup.md).
 
-## Latest release — v0.6.0, 17 November 2026
+## Latest release — v0.6.1, 19 November 2026
+
+- Ready-made packages for each environment, attached to every release: one for Codex, with a manifest that shows the right version, and one for Claude, Claude Code, Antigravity and other agents. See [Get the skill](#get-the-skill).
 
 - Paired English/Italian README, practical guides, skill instructions, operational references, environment notes and templates. Machine identifiers remain unchanged; the official Apache legal text is accompanied by explanations in both languages.
 
@@ -36,13 +38,21 @@ At first use, AWA checks for existing configuration and guides you through local
 
 ## Get the skill
 
-Clone this repository, or download its ZIP and place the extracted folder under the name `ai-work-architect` in the skills location supported by your AI environment. The repository root contains `SKILL.md`.
+Download the ready-made package for your environment from the [latest release](https://github.com/WitzardOtz/ai-work-architect/releases/latest):
+
+| Environment | Package | How to install |
+|---|---|---|
+| Codex (ChatGPT desktop app) | [`ai-work-architect-codex-plugin.zip`](https://github.com/WitzardOtz/ai-work-architect/releases/latest/download/ai-work-architect-codex-plugin.zip) | In Customize (Personalizza), open Plugins, choose Add and upload the ZIP. Codex shows the AWA version from the plugin manifest. |
+| Claude apps (claude.ai, desktop) | [`ai-work-architect-skill.zip`](https://github.com/WitzardOtz/ai-work-architect/releases/latest/download/ai-work-architect-skill.zip) | Upload the ZIP where the app accepts skills. |
+| Claude Code, Antigravity and other agents that read a skills folder | [`ai-work-architect-skill.zip`](https://github.com/WitzardOtz/ai-work-architect/releases/latest/download/ai-work-architect-skill.zip) | Extract it into the agent's skills folder, so that you get `.../skills/ai-work-architect/SKILL.md`. Claude Code reads `~/.claude/skills/`. On the Antigravity installations observed, global skills are in `~/.gemini/config/skills/`; check the agent's skill list after a restart. |
+
+Both packages contain the same complete skill: `SKILL.md` refers to files under `references/`, `templates/`, `environments/` and `scripts/`, so do not install `SKILL.md` alone. An installed copy does not update itself: install the new package after each release. The instructions need no runtime; the optional local CLI needs Python 3.9 or later and uses only the standard library.
+
+Developers can also clone the repository. GitHub's automatic "Source code" archives extract as `ai-work-architect-main` and have no Codex manifest, so use the packages above for installation.
 
 ```bash
 git clone https://github.com/WitzardOtz/ai-work-architect.git
 ```
-
-Install the complete folder, not `SKILL.md` alone: the entrypoint refers to files under `references/`, `templates/`, `environments/` and `scripts/`. For a host that takes an upload, zip the folder so the archive contains `ai-work-architect/SKILL.md`. The instructions need no runtime; the optional local CLI needs Python 3.9 or later and uses only the standard library.
 
 The repository contains reusable instructions, scripts, templates and tests. Your personal configuration, Vault events, caches and run artifacts belong outside this package and are not included. Installing the skill does not connect accounts or configure shared persistence; the first-run instructions guide that choice.
 
@@ -99,7 +109,13 @@ ChatGPT / Claude / Codex / Antigravity
 
 ## Installable package
 
-The installed folder must be named `ai-work-architect`, matching the `name:` in `SKILL.md`. GitHub source ZIPs may extract as `ai-work-architect-main`; rename that folder when installing.
+The installed folder must be named `ai-work-architect`, matching the `name:` in `SKILL.md`. Both release packages are built by:
+
+```bash
+python scripts/build_release.py
+```
+
+It writes `dist/ai-work-architect-skill.zip` and `dist/ai-work-architect-codex-plugin.zip`. The Codex package adds `.codex-plugin/plugin.json`, whose `version` comes from the code, so Codex shows the right version. Only the package files are included; private configuration, Vault data and caches are never packaged.
 
 ## Local CLI
 
@@ -236,9 +252,9 @@ python tests/package_check.py
 Expected:
 
 ```text
-AWA v0.6.0 smoke test: PASS
-AWA v0.6.0 regression test: PASS
-AWA v0.6.0 package check: PASS
+AWA v0.6.1 smoke test: PASS
+AWA v0.6.1 regression test: PASS
+AWA v0.6.1 package check: PASS
 ```
 
 The first two exercise the runtime in temporary folders. The third checks the package structure: frontmatter, local links, language pairs and version consistency.

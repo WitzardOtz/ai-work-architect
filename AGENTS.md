@@ -12,4 +12,4 @@ Before publishing documentation, check paired coverage, local links and command/
 
 ## Release checks
 
-Run `python tests/smoke_test.py`, `python tests/regression_test.py` and `python tests/package_check.py` before publishing. The version is `VERSION` in `scripts/awa_vault.py`; `MANIFEST.json`, `SKILL.md`, `docs/it/SKILL_IT.md`, both README titles and the event examples must match it, and the package check fails when they disagree. Keep model names, prices and benchmark claims out of the skill; dated environment notes belong in `environments/` with a review date.
+Run `python tests/smoke_test.py`, `python tests/regression_test.py` and `python tests/package_check.py` before publishing. Then run `python scripts/build_release.py` and attach both ZIP files from `dist/` to the GitHub release; never commit `dist/`. The version is `VERSION` in `scripts/awa_vault.py`; `MANIFEST.json`, `SKILL.md`, `docs/it/SKILL_IT.md`, both README titles and the event examples must match it, and the package check fails when they disagree. Keep model names, prices and benchmark claims out of the skill; dated environment notes belong in `environments/` with a review date.

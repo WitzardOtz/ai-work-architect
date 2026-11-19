@@ -165,9 +165,37 @@ def check_json_and_privacy():
                     err(f"{rel(path)}: possible private path or address {hit.group(0)!r}")
 
 
+def check_release_packages():
+    import tempfile
+    import zipfile
+    from build_release import NAME, PLUGIN_ZIP, SKILL_ZIP, build
+    with tempfile.TemporaryDirectory() as td:
+        build(Path(td))
+        with zipfile.ZipFile(Path(td) / SKILL_ZIP) as z:
+            names = set(z.namelist())
+            for needed in ("SKILL.md", "references/resource-registry.md", "scripts/awa_cli.py"):
+                if f"{NAME}/{needed}" not in names:
+                    err(f"{SKILL_ZIP}: missing {NAME}/{needed}")
+            if any(".github/" in n or "__pycache__" in n or not n.startswith(NAME + "/") for n in names):
+                err(f"{SKILL_ZIP}: unexpected entries outside the skill folder")
+        with zipfile.ZipFile(Path(td) / PLUGIN_ZIP) as z:
+            names = set(z.namelist())
+            if f"skills/{NAME}/SKILL.md" not in names:
+                err(f"{PLUGIN_ZIP}: missing skills/{NAME}/SKILL.md")
+            try:
+                manifest = json.loads(z.read(".codex-plugin/plugin.json"))
+            except (KeyError, ValueError) as exc:
+                err(f"{PLUGIN_ZIP}: cannot read .codex-plugin/plugin.json ({exc})")
+                return
+            if manifest.get("version") != VERSION or manifest.get("name") != NAME:
+                err(f"{PLUGIN_ZIP}: manifest name/version {manifest.get('name')}/{manifest.get('version')} differ from {NAME}/{VERSION}")
+            if manifest.get("skills") != "./skills/" or not manifest.get("author", {}).get("name"):
+                err(f"{PLUGIN_ZIP}: manifest must declare skills './skills/' and author.name")
+
+
 def main():
     for check in (check_frontmatter, check_versions, check_links, check_languages,
-                  check_entrypoint_reach, check_cli_commands, check_json_and_privacy):
+                  check_entrypoint_reach, check_cli_commands, check_json_and_privacy, check_release_packages):
         check()
     if errors:
         for message in errors:

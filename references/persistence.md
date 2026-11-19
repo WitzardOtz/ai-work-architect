@@ -49,7 +49,7 @@ Event headers should remain compact:
   "event_id": "<ULID>",
   "occurred_at": "<UTC timestamp>",
   "event_type": "run.closed",
-  "architect_version": "0.6.0",
+  "architect_version": "0.6.1",
   "environment": "claude-cowork",
   "device_id": "MY-PC",
   "run_id": "R_<ULID>",

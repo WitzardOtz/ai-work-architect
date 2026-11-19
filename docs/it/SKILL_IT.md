@@ -9,7 +9,7 @@ description: >-
 
 [English](../../SKILL.md) | [Italiano](SKILL_IT.md)
 
-Versione: 0.6.0
+Versione: 0.6.1
 
 ## Missione
 
